@@ -1,10 +1,31 @@
 {
-  "name": "decameron-library",
-  "version": "0.1.0",
-  "private": true,
+  "name": "vue-decameron-test",
+  "version": "0.0.0-dev.1",
+  "private": false,
+  "description": "Official components for Vue of decameron",
+  "author": "Miguel Angel Ortiz",
+  "license": "MIT",
+  "main": "dist/vue-decameron.common.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/miguelortizdev/vue-decameron-components.git"
+  },
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ],
+  "keywords": [
+    "decameron",
+    "decameron-components",
+    "vue"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-bundle": "vue-cli-service build --target lib --name vue-decameron ./src/components/index.ts",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
@@ -34,5 +55,10 @@
     "ts-jest": "^23.0.0",
     "typescript": "^3.4.3",
     "vue-template-compiler": "^2.6.10"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/miguelortizdev/vue-decameron-components/issues",
+    "email": "miguel.ortiz@decameron.com"
+  },
+  "homepage": "https://github.com/miguelortizdev/vue-decameron-components#readme"
 }
