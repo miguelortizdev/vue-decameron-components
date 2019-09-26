@@ -1,0 +1,177 @@
+//*------------------------------------*\
+// Variables Color
+//*------------------------------------*/
+
+//- Palette: No usar estas variables en los estilos
+/**
+ * color: $c-primary
+ * @color
+ * @section Primary
+ */
+$blue: #469EC3;
+/**
+ * color: rgba($c-primary, .5);
+ * @color
+ * @section Primary
+ */
+$c-opacity: rgba(70, 158, 195, .5);
+/**
+ * $c-primary-over
+ * @color
+ * @section Primary
+ */
+$blue-light: #57c8f8;
+/**
+ * $c-primary-mild
+ * @color
+ * @section Primary
+ */
+$ice-blue: #EFF7FB;
+
+/**
+ * $c-primary-light
+ * @color
+ * @section Primary
+ */
+$pale-grey: #F8FCFD;
+
+/**
+ * $c-secondary
+ * @color
+ * @section Secondary
+ */
+$green: #059F77;
+/**
+ * $c-secondary-light
+ * @color
+ * @section Secondary
+ */
+$aquamarine: #08dca5;
+/**
+ * $c-tertiary
+ * @color
+ * @section Tertiary
+ */
+$grape: #702F6D;
+
+/**
+ * $c-tertiary-over
+ * @color
+ * @section Tertiary
+ */
+$grape-light: #943E90;
+
+
+/**
+ * $c-error
+ * @color
+ * @section Surface
+ */
+$red: #D0021B;
+
+/**
+ * $c-error-light
+ * @color
+ * @section Surface
+ */
+$faded-red: #DD3247;
+
+/**
+ * $c-warning
+ * @color
+ * @section Surface
+ */
+$butterscotch: #FBB14B;
+
+/**
+ * $c-on
+ * @color
+ * @section On
+ */
+$grey: #575757;
+/**
+ * $c-on-mild
+ * @color
+ * @section On
+ */
+$grey-mild: #959595; // #9b9b9b | #8d8d8d
+/**
+ * $c-on-light | $c-border
+ * @color
+ * @section On
+ */
+$brown-grey: #adadad; // #a9a9a9 | #b6b6b6
+/**
+ * $c-bg-mild
+ * @color
+ * @section On
+ */
+$light-pink: #dddddd;
+/**
+ * $c-bg-light
+ * @color
+ * @section On
+ */
+$very-light-pink: #ececec; //#e6e6e6
+/**
+ * $c-bg-extra-light
+ * @color
+ * @section On
+ */
+$white-gray: #f6f6f6; // #f5f5f5 | #fafafa
+
+/**
+ * $c-neutro
+ * @color
+ * @section Neutro
+ */
+
+$white: #fff;
+
+//*------------------------------------*\
+// Variables Color Theme
+// Usar variantes: light,mild,dark
+//*------------------------------------*/
+// Neutro
+$c-neutro: $white;
+// Primary
+// se muestra con mayor frecuencia en las pantallas y componentes
+$c-primary      : $blue;
+$c-primary-over: $blue-light;
+$c-primary-mild : $ice-blue;
+$c-primary-light: $pale-grey;
+// Secondary & tertiary
+// Color para acentuar elementos: Botones de acción, Controles de selección, Resaltar texto, Barras de progreso, Enlaces y titulares
+$c-secondary      : $green;
+$c-secondary-light: $aquamarine;
+$c-secondary-over : $aquamarine;
+$c-tertiary       : $grape;
+$c-tertiary-over  : $grape-light;
+// Surface
+// Los colores de la superficie afectan a las superficies de los componentes, como cards, sheets, y menús
+
+$c-warning: $butterscotch;
+// Error
+// colores que indican el estado de errores
+$c-error      : $red;
+$c-error-light:  $grey;
+// colores que indican el estado satisfactorio
+$c-success : $green;
+$c-disabled: $light-pink;
+// Bg
+// color de fondo aparece detrás del contenido.
+$c-bg      : $grey;
+$c-bg-light: $very-light-pink; //disabled boton
+$c-bg-mild : $light-pink;
+$c-bg-dark : $grey;
+$c-bg-extra-light: $white-gray;
+// On
+// elementos de color que se colocan encima de las superficies
+$c-on      : $grey;
+$c-on-light: $brown-grey;
+$c-on-mild   : $grey-mild;
+// Border
+$c-border       : $brown-grey;
+$c-border-dark  : $grey;
+$c-border-medium : $light-pink;
+$c-border-light : $white-gray;

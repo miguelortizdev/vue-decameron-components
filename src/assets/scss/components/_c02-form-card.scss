@@ -1,0 +1,259 @@
+
+/*------------------------------------*\
+  C02- FormCard
+  Description: Carga una tarjeta compuesta por un campo de formulario y un botón
+  Type: Form
+  Path: /components/FormCard.vue
+\*------------------------------------*/
+/**
+  * Class: .ay-c-form-card
+  * @structure C02 FormCard
+  * @modifiers
+  *  .scheme_primary background second
+  *  .scheme_primary background third
+  * @flag full-width
+  * @description  Type: banner, contiene el título principal de la página
+  * @section Banner
+  * @markup
+  *  <div class="ay-c-form-card-grid">
+  *    <div class="ay-c-form-card scheme_primary">
+  *      <div class="ay-c-form-card__header i-id-card">
+  *        <p class="ay-c-form-card__legend">Por número de documento o por código de cita o asistencia</p>
+  *      </div>
+  *      <div class="ay-c-form-card__body">
+  *        <form class="ay-form">
+  *          <div class="ay-form__item">
+  *            <label class="ay-form__label">Número de documento / Código de cita o asistencia</label>
+  *            <input class="ay-form__field pristine untouched" name="Número de documento / Código de cita o asistencia" type="search" aria-required="true" aria-invalid="false" /><span class="ay-form__msg"></span>
+  *          </div>
+  *          <button class="ay-btn ay-btn-ico i-search">Buscar</button>
+  *        </form>
+  *      </div>
+  *    </div>
+  *    <div class="ay-c-form-card scheme_secondary">
+  *      <div class="ay-c-form-card__header i-calendar">
+  *        <p class="ay-c-form-card__legend">Entre un rango de fechas</p>
+  *      </div>
+  *      <div class="ay-c-form-card__body">
+  *        <form class="ay-form">
+  *          <div class="ay-form__grid">
+  *            <div class="ay-form__item">
+  *              <label class="ay-form__label" for="searchFrom">Desde:</label>
+  *              <input class="ay-form__field pristine untouched" id="from" type="date" name="searchFrom" data-vv-as="Desde" aria-required="false" aria-invalid="false" /><span class="ay-form__msg"></span>
+  *            </div>
+  *            <div class="ay-form__item">
+  *              <label class="ay-form__label" for="searchTo">Hasta:</label>
+  *              <input class="ay-form__field pristine untouched" id="to" type="date" name="searchTo" data-vv-as="Hasta" aria-required="true" aria-invalid="false" /><span class="ay-form__msg"></span>
+  *            </div>
+  *          </div>
+  *          <button class="ay-btn ay-btn-ico i-search">Buscar</button>
+  *        </form>
+  *      </div>
+  *    </div>
+  *  </div>
+  * @script
+  *  .ay-c-form-card(:class="colorScheme")
+  *    .ay-c-form-card__header(:class="icon")
+  *      p.ay-c-form-card__legend {{ title }}
+  *    .ay-c-form-card__body
+  *      //- condicional inputType: date
+  *      form.ay-form(v-if="inputType == 'date'" v-on:submit.prevent="submitted")
+  *        .ay-form__grid
+  *          .ay-form__item
+  *            label.ay-form__label(for='searchFrom') {{ $t('from') }}:
+  *            input#from.ay-form__field(type='date', name='searchFrom' ref='afterTarget' v-model="inputValue[0]" v-validate="'required|date_format:YYYY-MM-DD'" :data-vv-as="$t('from')" )
+  *            span.ay-form__msg {{ errors.first('searchFrom') }}
+  *          .ay-form__item
+  *            label.ay-form__label(for='searchTo') {{ $t('to') }}:
+  *            input#to.ay-form__field(type='date', name='searchTo' v-model="inputValue[1]" v-validate="'required|date_format:YYYY-MM-DD|after:afterTarget'" :data-vv-as="$t('to')" )
+  *            span.ay-form__msg {{ errors.first('searchTo') }}
+  *        button.ay-btn.ay-btn-ico.i-search(@click="submitted") {{ $t('search') }}
+  *      //- condicional inputType: search
+  *      form.ay-form(v-else-if="inputType == 'search'" v-on:submit.prevent="submitted")
+  *        .ay-form__item
+  *          label.ay-form__label {{ inputLabel }}
+  *          input.ay-form__field(:type="inputType" v-model="inputValue" :name='inputLabel' v-validate="'doc_cita_asistencia|required'")
+  *          span.ay-form__msg {{ errors.first(inputLabel) }}
+  *        button.ay-btn.ay-btn-ico.i-search(@click="submitted") {{ $t('search') }}
+  *      //- condicional inputType: undefined
+  *      a.ay-btn(
+  *        v-else="inputType == 'undefined'"
+  *        href="#",
+  *        title="title"
+  *        @click="submitt
+  */
+
+.ay-c-form-card-grid {
+  @include flexbox;
+  @include justify-content(center);
+  @include flex-wrap(wrap);
+  margin-top: 20px;
+  .ay-c-form-card-grid {
+    max-width: initial;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+}
+.ay-c-form-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 10px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 2px solid $c-border-light;
+
+  &.scheme_primary {
+    .ay-c-form-card__header {
+      background-color: $c-primary;
+    }
+    .ay-btn-ico,
+    .ay-btn {
+      border-color: $c-primary;
+      background-color: $c-primary;
+      &:hover {
+        background-color: $c-primary-over;
+        border-color: $c-primary-over;
+      }
+    }
+  }
+
+  &.scheme_secondary {
+    .ay-c-form-card__header {
+      background-color: $c-secondary;
+    }
+    .ay-btn-ico,
+    .ay-btn {
+      border-color: $c-secondary;
+      background-color: $c-secondary;
+      &:hover {
+        background-color: $c-secondary-over;
+        border-color: $c-secondary-over;
+      }
+    }
+    .ay-form__icon-bg {
+      &:before {
+        background-color: $c-secondary;
+      }
+    }
+  }
+
+  .ay-form {
+    @include flexbox;
+    @include flex-wrap(wrap);
+    @include justify-content(center);
+    @include align-content(space-between);
+    width: 100%;
+    height: 100%;
+  }
+  
+  .ay-form__label {
+    text-align: left;
+  }
+
+  .ay-btn {
+    margin-top: 10px;
+  }
+
+  .ay-btn {
+    &:hover {
+      background-color: $c-tertiary-over;
+      border-color: $c-tertiary-over;
+    }
+  }
+}
+
+.ay-c-form-card__header {
+  @include flexbox;
+  @include align-items(center);
+  @include flex-direction(row);
+  width: 100%;
+  padding: 30px 20px;
+  text-align: left;
+  color: $c-neutro;
+  background-color: $c-tertiary;
+  &:before {
+    @include font-rem(40px);
+    margin-right: 10px;
+  }
+}
+
+.ay-c-form-card__legend {
+  font-family: $f-bold;
+}
+
+.ay-c-form-card__body {
+  @include flexbox;
+  @include flex-direction(column);
+  width: 100%;
+  height: 100%;
+  padding: 20px 20px 24px;
+  text-align: center;
+}
+/*---------------------------------------------------------------*\
+  Textos que estan en cima de form card
+  Root: P06-creacion-o-busqueda-de-cita-para-generar-asistencia
+\*---------------------------------------------------------------*/
+.ay-c-form-card__lead {
+  @include flexbox;
+  @include align-items(center);
+}
+.ay-c-form-card__lead-item {
+  text-align: center;
+  width: 100%;
+}
+
+.ay-c-form-card__lead-txt {
+  @include font-rem(18px);
+  margin-bottom: 20px;
+}
+
+// @media only screen and (max-width: 1000px) {
+//   .ay-c-form-card-grid {
+//     .ay-c-form-card-grid {
+//       max-width: initial;
+//       @include flex-wrap(wrap);
+//     }
+//   }
+// }
+
+@include media-query(wide) {
+  .ay-c-form-card-grid {
+    @include flex-wrap(nowrap);
+    margin-bottom: 20px;
+    .ay-c-form-card-grid {
+      @include flex-wrap(wrap);
+      @include align-content(flex-start);
+      margin-bottom: 0;
+      &.ay-c-form-card-grid_single {
+        @include flex-direction(column);
+        @include flex-wrap(initial);
+        .ay-c-form-card {
+          height: 100%;
+        }
+        .ay-c-form-card__body {
+          @include justify-content(center);
+        }
+      }
+      &.ay-c-form-card-grid_double {
+        @include flex(2 2);
+      }
+    }
+  }
+
+  // .ay-c-form-card {
+  //   .ay-btn-ico {
+  //     min-width: 214px;
+  //   }
+  // }
+  // .ay-c-form-card__header {
+  //   @include flex-direction(row);
+  //   text-align: left;
+  //   padding: 30px 20px;
+  //   &:before {
+  //     margin-right: 10px;
+  //     margin-bottom: 0;
+  //   }
+  // }
+}

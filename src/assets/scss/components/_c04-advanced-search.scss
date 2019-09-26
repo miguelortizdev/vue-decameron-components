@@ -1,0 +1,177 @@
+/*------------------------------------*\
+  C04- AdvancedSearch
+  Description: Buscados avanzado
+  Type: Form
+  Path: /components/AdvanceSearch.vue
+\*------------------------------------*/
+/**
+  * Class: .ay-c-advanced-search
+  * @molecule Block: Search
+  * @section C04 advanced-search
+  * @modifiers
+  *  .ay-c-advanced-search_fixed Buscador en posicion fixed y con background gris
+  *  AdvancedSearch(:type="'contratos'")
+  * @markup
+  *  <div class="ay-c-advanced-search" recentlinks="[object Object]">
+  *    <form class="ay-c-advanced-search__form">
+  *      <div class="ay-c-advanced-search__bar i-search">
+  *        <input class="ay-form__search" type="text" placeholder="Número de documento / Código de cita o asistencia" />
+  *        <button class="ay-c-advanced-search__append i-triangle" type="button"></button>
+  *      </div>
+  *    </form>
+  *  </div>
+  */
+
+.ay-c-advanced-search {
+  padding: 20px 0;
+  &.ay-c-advanced-search_fixed {
+    // position: fixed;
+    // top: 0;
+    // z-index:4;
+    width: 100%;
+    padding: 8px 0;
+    background-color: $c-bg-light;
+    .ay-c-advanced-search__bar {
+      background-color: $c-neutro;
+    }
+    .ay-c-advanced-search__form {
+      width: 90%;
+      max-width: 820px;
+    }
+    .ay-form__search {
+      background-color: $c-neutro;
+    }
+  }
+}
+
+.ay-c-advanced-search__form {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.ay-form__error {
+  .ay-c-advanced-search__bar {
+    border-color: $c-error;
+    margin-bottom: 4px;
+  }
+
+  .ay-form__msg {
+    color: $c-error;
+  }
+}
+
+.ay-c-advanced-search__bar {
+  padding: 8px 0;
+  @include flexbox;
+  @include align-items(center);
+  color: $c-on-light;
+  overflow: hidden;
+  border-radius: 5px;
+  border: 1px solid $c-border;
+  background-color: $c-bg-light;
+  &:before {
+    @include font-rem(16px);
+    color: $c-primary;
+    padding: 0 10px;
+  }
+}
+
+.ay-form__search {
+  width: 100%;
+  font-family: $f-regular;
+  color: $c-on;
+  background-color: $c-bg-light;
+}
+
+// Botón de trieangulo para desplegar 
+// busqueda avanzada
+.ay-c-advanced-search__append {
+  &:before {
+    @include font-rem(8px);
+    color: $c-primary;
+    cursor: pointer;
+  }
+}
+
+/**
+  * Class: .ay-c-advanced-search__panel
+  * @molecule Block: Search
+  * @section C04 advanced-search
+  * @markup
+  *  <div class="ay-c-advanced-search__form">
+  *    <div class="ay-c-advanced-search__panel ay-c-advanced-search__panel_show">
+  *      <div class="ay-form__item ay-form__item_inline">
+  *        <label class="ay-form__label" for="searchFrom">Desde:</label>
+  *        <div class="ay-form__icon-bg i-data">
+  *          <input class="ay-form__field" id="from" type="date" name="" />
+  *        </div>
+  *      </div>
+  *      <div class="ay-form__item ay-form__item_inline">
+  *        <label class="ay-form__label" for="searchTo">Hasta:</label>
+  *        <div class="ay-form__icon-bg i-data">
+  *          <input class="ay-form__field" id="to" type="date" name="" />
+  *        </div>
+  *      </div>
+  *      <div class="ay-form__item ay-form__item_inline">
+  *        <label class="ay-form__label" for="searchName">Nombres:</label>
+  *        <input class="ay-form__field" id="searchName" type="text" name="" />
+  *      </div>
+  *      <div class="ay-form__item ay-form__item_inline">
+  *        <label class="ay-form__label" for="searchLastName">Apellidos:</label>
+  *        <input class="ay-form__field" id="searchLastName" type="text" name="" />
+  *      </div>
+  *      <div class="ay-form__item ay-form__item_right">
+  *        <button class="ay-btn ay-btn_primary">Buscar</button>
+  *      </div>
+  *    </div>
+  *  </div>
+  */
+
+.ay-c-advanced-search__panel {
+  position: absolute;
+  width: 100%;
+  padding: 14px 22px;
+  background-color: $c-neutro;
+  z-index: 10;
+      box-shadow: 0 2px 4px 1px rgba(138, 138, 138, 0.2);
+  .ay-form__field {
+    @include flex(1 1 auto);
+    width: initial;
+    color: $c-on-light;
+  }
+  &.ay-c-advanced-search__panel_show {
+    display: block;
+  }
+  &.ay-c-advanced-search__panel_hide {
+    display: none;
+  }
+  .ay-form__icon-bg {
+    .ay-form__field {
+      width: 100%;
+    }
+  }
+}
+
+.ay-c-advanced-search__inline,
+.ay-c-advanced-search__list {
+  @include flexbox;
+  @include align-items(center);
+}
+
+.ay-c-advanced-search__inline {
+  padding-top: 8px;
+}
+
+.ay-c-advanced-search__list {
+  list-style: none;
+}
+
+.ay-c-advanced-search__label {
+  font-family: $f-black;
+}
+
+.ay-c-advanced-search__list-item {
+  margin: 0 10px;
+}

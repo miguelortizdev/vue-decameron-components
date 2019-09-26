@@ -1,0 +1,291 @@
+/*------------------------------------*\
+  Transversal Elements
+  #Styles for botones
+\*------------------------------------*/
+
+button {
+  line-height: inherit;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: none;
+  outline: none;
+  outline-width: 0;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  &:focus {
+    outline-width: 0;
+  }
+  &:disabled {
+    cursor: default;
+  }
+}
+
+/**
+  * Class: .ay-btn
+  * @atom Botón principal
+  * @description  min-width: 214px
+  * @section Botones
+  * @markup
+  *  <button class="ay-btn" type="button"> Botón </button>
+  */
+
+.ay-btn {
+  display: inline-block;
+  min-width: 214px;
+  padding: 9px 18px;
+  line-height: 1;
+  vertical-align: middle;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $c-neutro;
+  @include font-rem(14px);
+  font-family: $f-bold;
+  border-radius: 6px;
+  border: 2px solid $c-tertiary;
+  background-color: $c-tertiary;
+  transition: all .3s;
+  &:hover{
+    color: $c-neutro;
+    border-color: $c-tertiary-over;
+    background-color: $c-tertiary-over;
+  }
+  &:focus,
+  &:active {
+    color: $c-neutro;
+    border-color: $c-secondary;
+    background-color: $c-secondary;
+  }
+}
+/**
+  * Class: .ay-btn-ico + clases de iconos [i-] ejemplo: i-edit
+  * @atom Botón icono
+  * @description  min-width: 214px
+  * @section Botones
+  * @markup
+  *  <div class="sg-block">
+  *   <button class="ay-btn-ico i-edit" type="button"> Editar información </button>
+  *  </div>
+  *  <div class="sg-block">
+  *   <button class="ay-btn-ico i-plus ay-btn_primary" type="button"> Añadir teléfono </button>
+  *  </div>
+  *  <div class="sg-block">
+  *   <button class="ay-btn-ico i-search ay-btn_secondary" type="button"> Buscar </button>
+  *  </div>
+  */
+.ay-btn-ico {
+  @include inline-flex;
+  @include justify-content(center);
+  @include align-items(center);
+  min-width: 214px;
+  // width: 100%;
+  padding: 7px 10px;
+  line-height: 1;
+  vertical-align: middle;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $c-neutro;
+  @include font-rem(14px);
+  font-family: $f-bold;
+  border-radius: 6px;
+  background-color: $c-primary;
+  transition: all .3s;
+
+  &::before {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-left: -6px;
+    margin-right: 6px;
+    vertical-align: top;
+    @include font-rem(16px);
+  }
+
+  &:hover {
+    color: $c-neutro;
+    border-color: $c-primary-over;
+    background-color: $c-primary-over;
+  }
+
+  &:focus,
+  &:active {
+    color: $c-neutro;
+    border-color: $c-secondary;
+    background-color: $c-secondary;
+  }
+}
+
+/**
+  * Class: .ay-btn .ay-btn_outline
+  * @atom Botón outline - modificador
+  * @description  Modificador de .ay-btn
+  * @section Botones
+  * @markup
+  *  <button class="ay-btn ay-btn_outline" type="button"> Botón outline </button>
+  */
+.ay-btn_outline {
+  color: $c-tertiary;
+  border-color: $c-tertiary;
+  background-color: $c-neutro;
+  &:hover {
+    color: $c-neutro;
+    border-color: $c-tertiary;
+    background-color: $c-tertiary;
+  }
+
+  &:active,
+  &:focus {
+    color: $c-tertiary;
+    border-color: $c-tertiary;
+    background-color: $c-neutro;
+  }
+}
+
+/**
+  * Class: .ay-btn .ay-btn_primary
+  * @atom Botón secundario - modificador
+  * @description  Modificador de .ay-btn
+  * @section Botones
+  * @markup
+  *  <button class="ay-btn ay-btn_primary" type="button"> Botón </button>
+  */
+.ay-btn_primary {
+  color: $c-neutro;
+  border-color: $c-primary;
+  background-color: $c-primary;
+
+  &:hover {
+    color: $c-neutro;
+    border-color: $c-primary-over;
+    background-color: $c-primary-over;
+  }
+
+  &:active,
+  &:focus {
+    color: $c-neutro;
+    border-color: $c-primary-over;
+    background-color: $c-primary;
+  }
+
+}
+
+/**
+  * Class: .ay-btn .ay-btn_secondary
+  * @atom Botón secundario - modificador
+  * @description  Modificador de .ay-btn
+  * @section Botones
+  * @markup
+  *  <button class="ay-btn ay-btn_secondary" type="button"> Botón </button>
+  */
+.ay-btn_secondary {
+  color: $c-neutro;
+  border-color: $c-secondary;
+  background-color: $c-secondary;
+
+  &:hover {
+    color: $c-neutro;
+    border-color: $c-secondary-light;
+    background-color: $c-secondary-light;
+  }
+
+  &:active,
+  &:focus {
+    color: $c-neutro;
+    border-color: $c-secondary-light;
+    background-color: $c-secondary;
+  }
+
+}
+
+/**
+  * Class: .ay-btn .ay-btn_tertiary
+  * @atom Botón secundario - modificador
+  * @description  Modificador de .ay-btn
+  * @section Botones
+  * @markup
+  *  <button class="ay-btn ay-btn_tertiary" type="button"> Botón </button>
+  */
+  .ay-btn_tertiary {
+    color: $c-neutro;
+    border-color: $c-tertiary;
+    background-color: $c-tertiary;
+  
+    &:hover {
+      color: $c-neutro;
+      border-color: $c-tertiary-over;
+      background-color: $c-tertiary-over;
+    }
+  
+    &:active,
+    &:focus {
+      color: $c-neutro;
+      border-color: $c-tertiary-over;
+      background-color: $c-tertiary;
+    }
+  
+  }
+
+/**
+  * Class: .ay-btn .ay-btn_neutro
+  * @atom Botón neutro - modificador
+  * @description  Modificador de .ay-btn
+  * @section Botones
+  * @markup
+  *  <button class="ay-btn ay-btn_neutro" type="button"> Botón </button>
+  */
+.ay-btn_neutro {
+  color: $c-tertiary;
+  border: 2px solid $c-neutro;
+  background-color: $c-neutro;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $c-neutro;
+    border-color: $c-neutro;
+    background-color: $c-tertiary;
+  }
+
+}
+
+/**
+  * Class: .ay-btn, .ay-btn-ico | atributo disabled
+  * @atom Botón deshabilitado
+  * @section Botones
+  * @modifiers
+  *  disabled: usar el atributo disabled para deshabilitar el botón
+  *  .ay-btn_primary para uso en flujos secundarios.
+  *  .ay-btn_outline
+  * @markup
+  *  <div class="sg-block">
+  *   <button class="ay-btn" type="button" disabled> Botón disabled  </button>
+  *  </div>
+  *  <div class="sg-block">
+  *   <button class="ay-btn ay-btn_outline" type="button" disabled> Botón disabled </button>
+  *  </div>
+  *  <div class="sg-block">
+  *   <button class="ay-btn-ico i-search" type="button" disabled> Botón ico </button>
+  *  </div>
+  */
+
+.ay-btn,
+.ay-btn-ico {
+  &:disabled {
+    color: $c-on-light;
+    border-color: $c-on-light;
+    background-color: $c-bg-light;
+  }
+
+  &_outline {
+    &:disabled {
+      color: $c-on-light;
+      border-color: $c-on-light;
+      background-color: $c-neutro;
+    }
+  }
+}

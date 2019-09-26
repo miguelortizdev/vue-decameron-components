@@ -1,0 +1,41 @@
+//*----------------------------------------------------*\
+    //  Google-font easy
+//*----------------------------------------------------*/
+
+// Font family
+// use: .foo {
+//			@include font-family('default','regular');
+//		}
+// Depende de MAP: font family, font weight 
+
+@mixin font-family($family, $weight,  $i:false) {
+
+	@if map-get($font-family, $family) {
+
+		@each $family-name, $family-value in $font-family {
+			
+			@if $family-name == $family {
+				font-family: $family-value; 
+			}
+		}
+
+	} @else {
+
+		font-family: $family; 
+	}
+
+
+	@each $weight-name, $weight-value in $font-weight {
+		
+		@if $weight-name == $weight {
+			font-weight: $weight-value; 
+		}
+	}
+
+	@if $i == italic {
+        font-style: italic;
+    }
+}
+
+
+

@@ -1,0 +1,149 @@
+/*------------------------------------*\
+  C05- QuickFilter
+  Description: se usará el componente 
+  VueMultiselect para todos los campos de 
+  selección múltiple que incorporan búsqueda.
+  Type: Form
+  Path: /components/QuickFilter.vue
+\*------------------------------------*/
+
+/**
+  * Class: .ay-c-quick-filter
+  * importante: NO usar el extacto de código html expuesto a continuación, usar el extracto de codigo pug que hace el llamado del del componente en vue
+  * @molecule Block: QuickFilter
+  * @section C05 quick-filter
+  * @markup
+  *  <div class="ay-c-quick-filter__input">
+  *    <div class="multiselect" tabindex="-1">
+  *      <div class="multiselect__select"></div>
+  *      <div class="multiselect__tags">
+  *        <div class="multiselect__tags-wrap" style="display: none;"></div>
+  *        <!-- -->
+  *        <div class="multiselect__spinner" style="display: none;"></div>
+  *        <input class="multiselect__input" name="" type="text" autocomplete="off" placeholder="Seleccione una opción" tabindex="0" style="width: 0px; position: absolute; padding: 0px;" />
+  *        <!-- --><span class="multiselect__placeholder">Seleccione una opción</span>
+  *      </div>
+  *      <div class="multiselect__content-wrapper" tabindex="-1" style="max-height: 300px; display: none;">
+  *        <ul class="multiselect__content" style="display: inline-block;">
+  *          <!-- -->
+  *          <li class="multiselect__element"><span class="multiselect__option multiselect__option--highlight" data-select="Press enter to select" data-selected="Selected" data-deselect="Press enter to remove"><span>Filtro 1</span></span>
+  *            <!-- -->
+  *          </li>
+  *          <li class="multiselect__element"><span class="multiselect__option" data-select="Press enter to select" data-selected="Selected" data-deselect="Press enter to remove"><span>Filtro 2</span></span>
+  *            <!-- -->
+  *          </li>
+  *          <li class="multiselect__element"><span class="multiselect__option" data-select="Press enter to select" data-selected="Selected" data-deselect="Press enter to remove"><span>Filtro 3</span></span>
+  *            <!-- -->
+  *          </li>
+  *          <li style="display: none;"><span class="multiselect__option">No elements found. Consider changing the search query.</span></li>
+  *          <li style="display: none;"><span class="multiselect__option">List is empty.</span></li>
+  *        </ul>
+  *      </div>
+  *    </div>
+  *  </div>
+  * @script
+  *  .ay-c-quick-filter__input
+  *    multiselect(
+  *      v-model="value",
+  *      tag-placeholder="Add this as new tag",
+  *      :placeholder="$t('select-an-option')",
+  *      label="name",
+  *      track-by="code",
+  *      :options="options",
+  *      :multiple="true",
+  *      :taggable="true",
+  *      @tag="addTag"
+  *    )
+  *    */
+.ay-c-quick-filter {
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(space-between);
+  padding-bottom: 20px;
+}
+
+.ay-c-quick-filter__control {
+  @include flexbox();
+  @include align-items(center);
+  width: 34%;
+  .ay-form__label {
+    margin-right: 10px;
+    padding-bottom: 0;
+    width: initial;
+  }
+}
+
+.ay-c-quick-filter__input {
+  @include flex(1 1 auto);
+}
+
+.ay-c-quick-filter__txt {
+  @include font-rem(16px);
+  font-family: $f-semibold;
+}
+
+.ay-c-quick-filter__bold {
+  font-family: $f-black;
+  text-transform: lowercase;
+}
+
+.ay-c-quick-filter__input {
+  .multiselect {
+    min-height: 41px;
+  }
+  .multiselect__tag {
+    background-color: $c-primary;
+  }
+  .multiselect__option--highlight {
+    background-color: $c-primary;
+    &:after {
+      background-color: $c-primary;
+    }
+  }
+  .multiselect__input {
+    @include font-rem(14px);
+    padding-left: 0;
+    color: $c-on-light;
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: $c-on-light;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: $c-on-light;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+      color: $c-on-light;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+      color: $c-on-light;
+    }
+  }
+  .multiselect__select {
+    &:before {
+      color: $c-on;
+      border-color: $c-on transparent transparent;
+    }
+  }
+  .multiselect__tags {
+    border-color: $c-on-light;
+  }
+  .multiselect__tag-icon {
+    &:after {
+      color: $c-neutro;
+    }
+    &:hover {
+      background-color: $c-primary;
+    }
+  }
+}
+
+// .multiselect__select {
+//   height: 38px;
+// }
+.multiselect__tags {
+  // height: 38px;
+  // min-height: initial;
+  padding: 7px 26px 0 8px;
+  border-color: $c-on-light;
+  // overflow-x: hidden;
+  // overflow-y: scroll;
+}

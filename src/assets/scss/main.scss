@@ -1,0 +1,69 @@
+/*------------------------------------*\
+  Estilos theme: Decameron Multivaciones
+  2018
+  Autor: Aguayo
+\*------------------------------------*/
+
+@import
+  'utils/variables/var-path',
+  'utils/variables/var-color',
+  'utils/variables/var-typo',
+  'utils/variables/var-gutter',
+  'utils/variables/var-canvas',
+  'utils/variables/var-breakpoint';
+
+@import
+  'utils/mix/mix-aspect-ratio',
+  'utils/mix/mix-flex',
+  'utils/mix/mix-font-family',
+  'utils/mix/mix-font-rem',
+  'utils/mix/mix-mediaquery',
+  'utils/mix/mix-keyframes';
+
+@import
+  'utils/helpers/help-center',
+  'utils/helpers/help-clearfix',
+  'utils/helpers/help-offset';
+
+@import
+  'generic/normalize',
+  'generic/font-face';
+
+@import
+  'patterns/anchor',
+  'patterns/buttons',
+  'patterns/forms',
+  'patterns/layout',
+  'patterns/media',
+  'patterns/titles',
+  'patterns/type';
+
+@import
+  'block/table',
+  'block/summary',
+  'block/flex-grid';
+
+@import
+  'components/c01-hero',
+  'components/c02-form-card',
+  'components/c03-data-list',
+  'components/c04-advanced-search',
+  'components/c05-quick-filter',
+  'components/c06-pager',
+  'components/c07-scrollspy',
+  'components/c09-form-add',
+  'components/c10-fixed-bar',
+  'components/c11-toast',
+  'components/c12-response',
+  'components/c13-collapse-form',
+  'components/c15-filter-question',
+  'components/c16-breaker',
+  'components/c17-steps',
+  'components/c18-quick-result',
+  'components/c19-check-list',
+  'components/c23-pop-over',
+  'components/c25-tabs',
+  'components/c24-modal';
+
+@import
+  'generic/print';

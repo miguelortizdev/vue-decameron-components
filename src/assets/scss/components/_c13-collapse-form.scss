@@ -1,0 +1,65 @@
+/*------------------------------------*\
+  C13 - CollapseForm
+  Description: Se despliega al hacer
+  click en el botón "Registrar comentario"
+  del componente "fixed-bar".
+  Type: Form
+  Path: /components/CollapseForm.vue
+\*------------------------------------*/
+
+.ay-c-collapse-form {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10004;
+  opacity: 0;
+  max-width: 1280px;
+  margin: 0 auto;
+  transform: translateY(100%);
+  transition: all .3s linear;
+  // Clase para mostrar el componente CollapseForm
+  &.ay-c-collapse-form_show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .ay-form__col {
+    margin-bottom: 0;
+  }
+}
+
+.ay-layout-grid {
+  .ay-c-collapse-form__inner {
+    width: 82%;
+    margin: 0 0 0 auto;
+  }
+}
+
+.ay-c-collapse-form__inner  {
+  box-shadow: 0 2px 4px 1px rgba(138, 138, 138, 0.2);
+}
+.ay-c-collapse-form__lead {
+  padding: 10px 20px;
+  color: $c-neutro;
+  background-color: $c-primary;
+}
+
+.ay-c-collapse-form__content {
+  padding: 14px 20px;
+  background-color: $c-bg-extra-light;
+}
+
+.ay-c-collapse-form__grid {
+  @include flexbox();
+  @include align-items(center);
+  .ay-btn {
+    margin: 10px 20px 0 0;
+    margin-right: 20px;
+  }
+}
+
+.ay-c-collapse-form {
+  .ay-form__radiobox {
+    margin-right: 40px;
+  }
+}

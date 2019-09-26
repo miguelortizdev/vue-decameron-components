@@ -1,0 +1,47 @@
+//*------------------------------------------------------*\
+  // keyframes mixin for animation CSS
+//*------------------------------------------------------*/
+// Use: @include h-offset-full {...}
+// Dev: Andrea Acosta B.
+//*------------------------------------------------------*/
+// Ejemplo:
+//*------------------------------------------------------*/
+// @include keyframes(slideIn) {
+//   from {
+//     margin-left: 100%;
+//     width: 300%
+//   }
+
+//   to {
+//     margin-left: 0%;
+//     width: 100%;
+//   }
+// }
+
+// Crear una clase y llamar el keyframe
+
+// .ay-animation-slidein {
+//   animation-duration: 3s;
+//   animation-name: slideIn;
+//   animation-iteration-count: 3;
+//   animation-direction: alternate;
+// }
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-ms-keyframes #{$animationName} {
+    @content;
+  }
+
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+

@@ -1,0 +1,833 @@
+/*------------------------------------*\
+  Transversal Elements
+  #Styles for Form
+  \*------------------------------------*/
+
+  input,
+  select,
+  textarea {
+    outline: none;
+    border: none;
+
+  }
+
+  label {
+    cursor: default;
+  }
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .error,
+  .ay-text_error {
+    padding-top: 5px;
+    color: $c-error;
+    @include font-rem(12px);
+  }
+  // .form__set {}
+
+  // .form__legend {}
+
+/**
+ * .ay-form__label, {Font-size: 14px, color: $c-on-mild}
+ * @atom Label
+ * @section Formularios
+ * @markup
+ *  <label class="ay-form__label"> Label de formulario: </label>
+ */
+.ay-form__label {
+  display: block;
+  //padding-bottom: 6px;
+  color: $c-on-mild;
+  font-family: $f-bold;
+  @include font-rem(14px);
+
+  //Estilos genericos para validaciones
+  width: 100%;
+  line-height: 1.2;
+  min-height: 38px;
+  @include flexbox();
+  @include align-items(center);
+  @include align-self(flex-start);
+  //end Estilos genericos para validaciones
+}
+
+/**
+ * .ay-form__field, {font-size: 14px, border-color: $c-on}
+ * @atom Campo de formulario
+ * @section Formularios
+ * @markup
+ *  <input class="ay-form__field" placeholder="placeholder" type="text">
+ */
+ .ay-form__field {
+  display: block;
+  width: 100%;
+  height: 38px;
+  padding: 8px;
+  color: $c-on;
+  @include font-rem(14px);
+  font-family: $f-regular;
+  border-radius: 5px;
+  border: solid 1px $c-border;
+  background-color: $c-neutro;
+  &::placeholder {
+    color: $c-on-light;
+  }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    -webkit-text-fill-color: $c-on;
+  }
+}
+/**
+ * .ay-form__textarea, {min-width: 100%; max-width: 100%; min-width: 100%;}
+ * @atom Campo de formulario
+ * @section Formularios
+ * @markup
+ * <textarea class="ay-form__field ay-form__textarea"type="text"></textarea>
+ */
+.ay-form__textarea {
+  max-width: 100%;
+  min-width: 100%;
+  height: initial;
+  resize: none;
+}
+/**
+ * .ay-form__control
+ * @atom Controles de formulario personalizados
+ * @section Formularios
+ * @markup
+ *  <div class="ay-form__item">
+ *   <div class="ay-form__control i-arrow-down">
+ *    <select class="ay-form__select-no-appearance">
+ *      <option value="cedula" selected="">Cédula de ciudadanía</option>
+ *      <option value="cedula-ext">Cédula de extranjería</option>
+ *      <option value="pasaporte">Pasaporte</option>
+ *      <option value="nit">Nit Persona Natural</option>
+ *    </select>
+ *   </div>
+ *  </div>
+ *  <div class="ay-form__item">
+ *   <div class="ay-form__control i-triangle">
+ *    <select class="ay-form__select-no-appearance">
+ *      <option value="cedula" selected="">Cédula de ciudadanía</option>
+ *      <option value="cedula-ext">Cédula de extranjería</option>
+ *      <option value="pasaporte">Pasaporte</option>
+ *      <option value="nit">Nit Persona Natural</option>
+ *    </select>
+ *   </div>
+ *  </div>
+ */
+.ay-form__control {
+  position: relative;
+  width: 100%;
+  border-radius: 5px;
+  background-color: $c-neutro;
+  &:before {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    z-index: 2;
+    display: block;
+    @include font-rem(7px);
+    -ms-transform : translateY(-50%);
+    -moz-transform : translateY(-50%);
+    -o-transform : translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform : translateY(-50%);
+    pointer-events: none;
+  }
+  &.i-arrow-up-down {
+    &:before {
+      @include font-rem(10px);
+    }
+  }
+}
+
+.ay-form__select-no-appearance {
+  position: relative;
+  z-index: 1;
+  border: none;
+  display: block;
+  width: 100%;
+  padding: 10px 28px 10px 8px;
+  white-space: nowrap;
+  color: $c-on;
+  @include font-rem(14px);
+  font-family: $f-regular;
+  outline: none;
+  border-radius: 5px;
+  border: solid 1px $c-border;
+  background-color: $c-neutro;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    // -webkit-appearance: none;
+    margin: 0;
+    position: relative;
+    right: 0;
+  }
+}
+/**
+ * .ay-form__col
+ * @atom Controles de formulario personalizados
+ * @section Formularios
+ * @markup
+ *  <div class="ay-c-form__row">
+ *    <div class="ay-form__col">
+ *      <label class="ay-form__label" for="col"><span class="ay-form__label-txt">col</span></label>
+ *      <input class="ay-form__field" id="col" type="text" value=".ay-form__col" name="numberOfCreditCards" />
+ *    </div>
+ *  </div>
+ *  <div class="ay-c-form__row">
+ *    <div class="ay-form__col ay-form__col-2">
+ *      <label class="ay-form__label" for="col-2"><span class="ay-form__label-txt">col-2</span></label>
+ *      <input class="ay-form__field" id="col-2" type="text" value=".ay-form__col.ay-form__col-2" name="numberOfCreditCards" />
+ *    </div>
+ *  </div>
+ *  <div class="ay-c-form__row">
+ *    <div class="ay-form__col ay-form__col-3">
+ *      <label class="ay-form__label" for="col-3"><span class="ay-form__label-txt">col-3</span></label>
+ *      <input class="ay-form__field" id="col-3" type="text" value=".ay-form__col.ay-form__col-3" name="numberOfCreditCards" />
+ *    </div>
+ *  </div>
+ *  <div class="ay-c-form__row">
+ *    <div class="ay-form__col ay-form__col-4">
+ *      <label class="ay-form__label" for="col-4"><span class="ay-form__label-txt">col-4</span></label>
+ *      <input class="ay-form__field" id="col-4" type="text" value=".ay-form__col.ay-form__col-4" name="numberOfCreditCards" />
+ *    </div>
+ *  </div>
+ *  <div class="ay-c-form__row">
+ *    <div class="ay-form__col ay-form__col-half">
+ *      <label class="ay-form__label" for="col-half"><span class="ay-form__label-txt">col-half</span></label>
+ *      <input class="ay-form__field" id="col-half" type="text" value=".ay-form__col.ay-form__col-half" name="numberOfCreditCards" />
+ *    </div>
+ *    <div class="ay-form__col ay-form__col-half">
+ *      <label class="ay-form__label" for="col-half"><span class="ay-form__label-txt">col-half</span></label>
+ *      <input class="ay-form__field" id="col-half" type="text" value=".ay-form__col.ay-form__col-half" name="numberOfCreditCards" />
+ *    </div>
+ *  </div>
+ *  <div class="ay-c-form__row">
+ *    <div class="ay-form__col ay-form__col-full">
+ *      <label class="ay-form__label" for="col-full"><span class="ay-form__label-txt">col-full</span></label>
+ *      <input class="ay-form__field" id="col-full" type="text" value=".ay-form__col.ay-form__col-full" name="numberOfCreditCards" />
+ *    </div>
+ *  </div>
+ * @modifiers
+ *  .ay-form__col                      width 20% (por defecto)
+ *  .ay-form__col.ay-form__col-2       width 40%
+ *  .ay-form__col.ay-form__col-3       width 60%
+ *  .ay-form__col.ay-form__col-4       width 80%
+ *  .ay-form__col.ay-form__col-half       width 50%
+ *  .ay-form__col.ay-form__col-full       width 100%
+ */
+//grilla de formularios
+.ay-c-form__row {
+  @include flexbox();
+  @include flex-wrap(wrap);
+  margin: 0 -10px;
+  &.ay-c-form__row_end {
+    @include justify-content(flex-end);
+  }
+  &.ay-c-form__row_wide {
+    @include flex(1 100%);
+  }
+  // se cambia clase: .ay-form__item
+  // por clase: .ay-form__col
+  .ay-form__col {
+    position: relative;
+    width: calc(20% - 20px);
+    min-width: 140px;
+    margin: 0 10px;
+    margin-bottom: 16px;
+    .ay-form__field,
+    .ay-form__multiselect,
+    .ay-form__control {
+      margin: 4px 0;
+    }
+    &.ay-form__col-2 {
+      width: calc(40% - 20px);
+    }
+    &.ay-form__col-3 {
+      width: calc(60% - 20px);
+    }
+    &.ay-form__col-4 {
+      width: calc(80% - 20px);
+    }
+    &.ay-form__col-full {
+      width: calc(100% - 20px);
+    }
+    &.ay-form__col-half {
+      width: calc(50% - 20px);
+    }
+    &.ay-form__col-one-third {
+      width: calc(33.33% - 20px);
+    }
+    .ay-form__icon-bg {
+      &:before {
+        top: 5px;
+      }
+    }
+    .ay-form__radiobox {
+      width: 50%;
+      display: inline-block;
+      margin: 4px 0;
+    }
+    .ay-form__radio {
+      height: 38px;
+    }
+    &.ay-form__col_end {
+      @include align-items(flex-end);
+      @include align-self(stretch);
+      @include align-content(flex-end);
+      margin-bottom: 0;
+      .ay-btn-ico {
+        height: 36px;
+        margin-bottom: 4px;
+      }
+      .ay-btn,
+      .ay-btn-ico {
+        min-width: initial;
+        width: 100%;
+      }
+    }
+  }
+  .ay-form__col_grid {
+    @include flexbox;
+    .ay-c-quick-result__grid {
+      height: 100%;
+    }
+  }
+}
+
+  .ay-form__col {
+    &.ay-form__col_center {
+      text-align: center;
+    }
+  }
+
+@media only screen and (max-width: 713px) {
+  .ay-c-form-add {
+    .ay-c-form__row {
+      .ay-form__col {
+        &.ay-form__col_end {
+          margin-top: 0;
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .ay-c-form__row {
+    .ay-form__col {
+      &.ay-form__col_end {
+        width: initial;
+      }
+    }
+  }
+}
+
+/**
+ * .ay-form__item
+ * @atom Item de formulario
+ * @section Formularios
+ * @markup
+ *  <div class="ay-form__item">
+ *    <label class="ay-form__label" for="name"> Nombres: </label>
+ *    <input class="ay-form__field"type="text" name="name"id="name">
+ *  </div>
+ *  <div class="ay-form__item">
+ *    <label class="ay-form__label" for="age"> Edad: </label>
+ *    <input class="ay-form__field" type="number" name="age" id="age" value="18">
+ *  </div>
+ */
+.ay-form__item {
+  //Estilos genericos para validaciones
+  @include flexbox();
+  @include flex-wrap(wrap);
+  @include align-content(flex-start);
+  //end Estilos genericos para validaciones
+  &.ay-form__item_right {
+    @include justify-content(flex-end);
+  }
+  &.ay-form__item_center {
+    text-align: center;
+  }   
+}
+.ay-form__field {
+  &.ay-form__field_invalid {
+    border-color: $c-error;
+    margin-bottom: 4px;
+  }
+  &.ay-form__field_invalid + .ay-form__msg {
+    color: $c-error;
+  }
+}
+
+/**
+ * .ay-form__item_inline
+ * @atom Item de formulario inline
+ * @section Formularios
+ * @markup
+ *  <div class="ay-form__item ay-form__item_inline">
+ *    <label for="searchFrom" class="ay-form__label">Desde:</label>
+ *    <input id="name" type="date" name="" class="ay-form__field">
+ *  </div>
+ */
+.ay-form__item_inline {
+  @include flexbox;
+  @include flex-wrap(nowrap);
+  @include align-items(center);
+  padding-bottom: 12px;
+  .ay-form__label {
+    width: initial;
+    min-width: 80px;
+    padding-right: 32px;
+    padding-bottom: 0;
+  }
+}
+
+.ay-form__grid {
+  @include flexbox;
+  @include justify-content(space-between);
+  width: 100%;
+  //@include align-items(center);
+  .ay-form__item {
+    width: 48%;
+  }
+}
+
+/**
+ * .ay-form__icon-bg.i-data
+ * @atom Input de con icono y bg
+ * @section Formularios
+ * @markup
+ *  <div class="ay-form__icon-bg i-data">
+ *    <input class="ay-form__field" id="from" type="date" name="" />
+ *  </div>
+ */
+
+.ay-form__icon-bg {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  width: 100%;
+  &:before {
+    position: absolute;
+    top: 1px;
+    right: 0;
+    padding: 8px 12px;
+    @include font-rem(20px);
+    color: $c-neutro;
+    pointer-events: none;
+    border-radius: 0 5px 5px 0;
+    background-color: $c-primary;
+  }
+}
+
+// For checkbox, radio button
+.ay-form__input-no-appearance {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+/**
+ * .ay-form__checkbox, Checkbox personalizado usando el :before del label
+ * @atom Checkbox
+ * @section Formularios
+ * @markup
+ *  <div class="ay-form__checkbox">
+ *    <input class="ay-form__input-no-appearance" type="checkbox" name="checkbox-custom" value="" id="checkbox-custom">
+ *    <label class="ay-form__check i-check" for="checkbox-custom">
+ *      <span class="ay-form__check-label"> Label checkbox </span>
+ *    </label>
+ *  </div>
+ */
+
+.ay-form__checkbox {
+  position: relative;
+}
+  .ay-form__check {
+    position: relative;
+    @include flexbox;
+    @include align-items (center);
+    @include font-rem(14px);
+    font-family: $f-regular;
+    &:before {
+      content: "";
+      display: block;
+      min-width: 14px;
+      max-width: 14px;
+      height: 14px;
+      margin-right: 6px;
+      line-height: 18px;
+      text-align: center;
+      color: $c-primary;
+      @include font-rem(8px);
+      border-radius: 2px;
+      border: 1px solid $c-border-dark;
+      background-color: $c-neutro;
+      pointer-events: none;
+      transition: all 0.2s ease;
+    }
+  }
+  .ay-form__check-label {
+    color: $c-on;
+  }
+  .ay-form__input-no-appearance {
+    &:checked + .ay-form__check {
+      &:before {
+        content: $i-check;
+        line-height: 14px;
+        color: $c-neutro;
+        border-color: $c-primary;
+        background-color: $c-primary;
+      }
+    }
+  }
+/**
+ * .ay-form__radiobox, Radio button personalizado usando el :before del label
+ * @atom Radio button
+ * @section Formularios
+ * @markup
+ *  <div class="ay-form__radiobox">
+ *   <input class="ay-form__input-no-appearance" type="radio" name="radio-custom" value="radio-custom" id="radio-custom">
+ *    <label class="ay-form__radio" for="radio-custom">
+ *      <span class="ay-form__radio-label"> Label radio button </span>
+ *    </label>
+ *   </div>
+ */
+
+.ay-form__radiobox {
+  position: relative;
+}
+
+.ay-form__radio {
+  position: relative;
+  @include flexbox;
+  @include align-items (center);
+  @include font-rem(14px);
+  font-family: $f-regular;
+
+  &:before {
+    content: "";
+    display: block;
+    min-width: 14px;
+    max-width: 14px;
+    height: 14px;
+    margin-right: 6px;
+    line-height: 18px;
+    text-align: center;
+    color: $c-primary;
+    @include font-rem(14px);
+    border-radius: 50%;
+    border: 1px solid $c-border-dark;
+    background-color: $c-neutro;
+    pointer-events: none;
+    transition: all 0.2s ease;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    display: block;
+    width: 8px;
+    height: 8px;
+    margin-top: -4px;
+    border-radius: 50%;
+    background-color: $c-secondary;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.5);
+    transition: all 0.2s ease;
+  }
+}
+
+.ay-form__radio-label {
+  color: $c-on;
+}
+
+.ay-form__input-no-appearance {
+  &:checked + .ay-form__radio {
+    &:after {
+      width: 8px;
+      height: 8px;
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+.ay-form__msg {
+  display: block;
+  width: 100%;
+  @include font-rem(12px);
+  //Estilos genericos para validaciones
+  @include align-self(flex-end);
+  //end Estilos genericos para validaciones
+}
+
+.ay-form__sup {
+  color: $c-error;
+  @include font-rem(16px);
+  line-height: 1;
+  padding-left: 4px;
+  top: 0;
+}
+
+//form-edit
+.ay-form-edit {
+  .ay-form__field {
+    transition: all .2s ease-in-out;
+  }
+  .ay-form__icon-bg {
+    &:before {
+      opacity: 1;
+      transition: all .2s ease-in-out;
+    }
+  }
+  .ay-form__select-no-appearance {
+    transition: all .2s ease-in-out;
+  }
+  .ay-form__control {
+    &:before {
+      opacity: 1;
+      transition: all .2s ease-in-out;
+    }
+  }
+  &.ay-form-edit_show {
+    .ay-form__field,
+    .ay-form__select-no-appearance,
+    .ay-form__control {
+      border: 0;
+      padding: 0;
+      @include font-rem(16px);
+      background-color: transparent;
+    }
+    .ay-form__field,
+    .ay-form__control {
+      height: initial;
+    }
+    .ay-form__multiselect {
+      height: 38px;
+    }
+    .ay-form__icon-bg {
+      &:before {
+        opacity: 0;
+      }
+    }
+
+    .ay-form__input-no-appearance+.ay-form__check {
+      display: none;
+    }
+
+    .ay-form__input-no-appearance {
+      &:checked+.ay-form__check {
+        &:before {
+          background-color: $c-secondary;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    .ay-form__input-no-appearance+.ay-form__radio {
+      display: none;
+    }
+
+    .ay-form__input-no-appearance {
+      &:checked+.ay-form__radio {
+        display: block;
+
+        &:after,
+        &:before {
+          display: none;
+        }
+      }
+    }
+
+    .ay-form__select-no-appearance {
+      padding-left: 0;
+      border: 0;
+
+      &:before {
+        opacity: 0;
+      }
+    }
+
+    .ay-form__control {
+      &:before {
+        opacity: 0;
+        transition: all .2s ease-in-out;
+      }
+    }
+  }
+  .ay-c-tab__row_query {
+    .ay-form__field,
+    .ay-form__select-no-appearance,
+    .ay-form__control {
+      border: 0;
+      padding: 0;
+      @include font-rem(16px);
+      background-color: transparent;
+    }
+    .ay-form__field,
+    .ay-form__control {
+      height: initial;
+    }
+    .ay-form__multiselect {
+      height: 38px;
+    }
+    .ay-form__icon-bg {
+      &:before {
+        opacity: 0;
+      }
+    }
+
+    .ay-form__input-no-appearance+.ay-form__check {
+      display: none;
+    }
+
+    .ay-form__input-no-appearance {
+      &:checked+.ay-form__check {
+        &:before {
+          background-color: $c-secondary;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    .ay-form__input-no-appearance+.ay-form__radio {
+      display: none;
+    }
+
+    .ay-form__input-no-appearance {
+      &:checked+.ay-form__radio {
+        display: block;
+
+        &:after,
+        &:before {
+          display: none;
+        }
+      }
+    }
+
+    .ay-form__select-no-appearance {
+      padding-left: 0;
+      border: 0;
+
+      &:before {
+        opacity: 0;
+      }
+    }
+
+    .ay-form__control {
+      &:before {
+        opacity: 0;
+        transition: all .2s ease-in-out;
+      }
+    }
+  }
+}
+
+.ay-form-edit {
+  &.ay-form-edit_show {
+    .ay-c-tab__row_edit {
+      .ay-form__field {
+        border: solid 1px $c-border;
+        height: 38px;
+        padding: 8px;
+        @include font-rem(14px);
+        background-color: $c-neutro;
+      }
+    
+      .ay-form__control {
+        border: solid 1px $c-border;
+        height: 38px;
+    
+        &:before {
+          opacity: 1;
+        }
+      }
+    
+      .ay-form__select-no-appearance {
+        padding: 10px 28px 10px 8px;
+      }
+    
+      .ay-form__input-no-appearance+.ay-form__check {
+        @include flexbox;
+      }
+      .ay-form__input-no-appearance {
+        &:checked+.ay-form__check {
+          &:before {
+            border-radius: 0;
+            background-color: $c-primary;
+          }
+        }
+      }
+      .ay-form__input-no-appearance+.ay-form__radio {
+        @include flexbox;
+      }
+      .ay-form__input-no-appearance {
+        &:checked+.ay-form__radio {
+          @include flexbox;
+          &:after,
+          &:before {
+            display: block;
+          }
+        }
+      }
+      .ay-form__col_end {
+        .ay-btn-ico {
+          display: block!important;
+        }
+      }
+      .ay-form__icon-bg {
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.ay-form__multiselect {
+  position: relative;
+  width: 100%;
+  height: 38px;
+  .multiselect {
+    position: absolute;
+    height: 38px;
+    min-height: initial;
+    z-index: 10000;
+  }
+}
+
+
+hr {
+  margin: 14px 0;
+  background-color: #dddddd;
+  border-style: none;
+  height: 2px;
+}

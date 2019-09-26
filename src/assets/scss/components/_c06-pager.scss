@@ -1,0 +1,77 @@
+/*------------------------------------*\
+  C06- Pager
+  Description: Un paginador que mantiene tracking
+  de la página activa, la anterior y la siguiente.
+  Los enlaces anterior o siguiente se habilitan o
+  inhabilitan al llegar a la primera y última página.
+  Type: Navigation
+  Path: /components/Pager.vue
+\*------------------------------------*/
+
+/**
+  * Class: .ay-c-pager
+  * @molecule Block: Pager
+  * @section C06 pager
+  * @markup
+  *  <ul class="ay-c-pager">
+  *    <li class="ay-c-pager__array ay-c-pager__array_left">
+  *      <a class="ay-c-pager__link" href="/'/detalle-cita/' + item.id">< Anterior</a> 
+  *    </li>
+  *    <li class="ay-c-pager__item ay-c-pager__item_active">
+  *      <a class="ay-c-pager__link" href="/'/'">1</a>
+  *    </li>
+  *    <li class="ay-c-pager__item">
+  *      <a class="ay-c-pager__link" href="/'/'">2</a>
+  *    </li>
+  *    <li class="ay-c-pager__item">
+  *      <a class="ay-c-pager__link" href="/'/'">3</a>
+  *    </li>
+  *    <li class="ay-c-pager__item">
+  *      <a class="ay-c-pager__link" href="/'/'">4</a>
+  *    </li>
+  *    <li class="ay-c-pager__item">
+  *      <a class="ay-c-pager__link" href="/'/'">5</a>
+  *    </li>
+  *    <li class="ay-c-pager__array ay-c-pager__array_right">
+  *      <a class="ay-c-pager__link" href="/'/'">Siguiente ></a>
+  *    </li>
+  *  </ul>
+  */
+.ay-c-pager {
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(center);
+  list-style: none;
+  padding: 6px 0;
+}
+
+.ay-c-pager__item {
+  margin: 0 6px;
+  font-family: $f-semibold;
+  color: $c-primary;
+  @include font-rem(16px);
+  &.ay-c-pager__item_active {
+    padding: 6px 14px;
+    border-radius: 50%;
+    font-family: $f-extrabold;
+    color: $c-neutro;
+    background-color: $c-primary;
+  }
+}
+
+.ay-c-pager__array {
+  @include font-rem(16px);
+  &.ay-c-pager__array_left {
+    color: $c-on-mild;
+    margin-right: 40px;
+  }
+  &.ay-c-pager__array_right {
+    margin-left: 40px;
+    color: $c-primary;
+  }
+}
+
+.ay-c-pager__link {
+  color: inherit;
+  font-family: $f-semibold;
+}

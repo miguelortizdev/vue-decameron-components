@@ -1,0 +1,76 @@
+/*------------------------------------*\
+    Transversal Elements
+    #Styles for Titles
+\*------------------------------------*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+/**
+ * Class: .ay-headline, Font-family: Akrobat Semi bold, Font-size: 22px color: $c-primary, text-aling: center.
+ * @atom Headline
+ * @section Títulos
+ * @markup
+ *  <h2 class="ay-headline">Título Sección</h2>
+ */
+.ay-headline {
+  padding: 20px 0;
+  text-align: center;
+  color: $c-primary;
+  font-family: $f-semibold;
+  @include font-rem(22px);
+}
+/**
+ * Class: .ay-legend, Font-family: Akrobat bold, Font-size: 18px color: $c-on-light, text-aling: left.
+ * @atom Legend
+ * @section Títulos
+ * @markup
+ *  <legend class="ay-legend"> Legend seccción</legend>
+ */
+.ay-legend {
+  padding-bottom: 16px;
+  text-align: left;
+  color: $c-on-light;
+  font-family: $f-bold;
+  font-weight: normal;
+  @include font-rem(18px);
+  text-transform: uppercase;
+}
+  .ay-legend__small {
+    display: block;
+    font-family: $f-light;
+    @include font-rem(14px);
+    text-transform: initial;
+  }
+/**
+ * Class: .ay-legend, Font-family: Akrobat bold, Font-size: 22px color: $c-on-light
+ * @atom Title
+ * @section Títulos
+ * @markup
+ *  <h3 class="ay-title">Título general</h3>
+ */
+.ay-title {
+  font-family: $f-bold;
+  font-weight: normal;
+  @include font-rem(22px);
+  text-transform: uppercase;
+}
+
+/**
+ * Class: .ay-subtitle, Font-family: Akrobat bold, Font-size: 18px color: $c-on
+ * @atom Title
+ * @section Títulos
+ * @markup
+ *  <p class="ay-title">Título general</p>
+ */
+.ay-subtitle {
+  font-family: $f-bold;
+  font-weight: normal;
+  @include font-rem(18px);
+}

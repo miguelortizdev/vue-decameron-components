@@ -25,7 +25,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build-bundle": "vue-cli-service build --target lib --name vue-decameron ./src/components/index.ts",
+    "build-bundle": "yarn build-bundle-js && yarn build-bundle-css",
+    "build-bundle-js": "vue-cli-service build --target lib --name vue-decameron ./src/components/index.ts",
+    "build-bundle-css": "vue-cli-service build --target lib --name vue-decameron ./src/assets/scss/main.scss",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },

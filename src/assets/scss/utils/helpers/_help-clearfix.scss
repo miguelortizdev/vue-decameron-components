@@ -1,0 +1,14 @@
+//*----------------------------------------------------------*\
+    //#Eliminates behavior of the parent of floating elements
+//*----------------------------------------------------------*/
+
+//Borra la flotación de los elementos
+//use: .foo {@include h-clearfix;}
+
+@mixin h-clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}

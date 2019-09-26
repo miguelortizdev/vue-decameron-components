@@ -1,0 +1,126 @@
+/*------------------------------------*\
+  C03- DataList
+  Description: Muestra objetos de tipo contrato,
+  cita o asistencia.
+  Type: Dialogue
+  Path: /components/DataList.vue
+\*------------------------------------*/
+
+
+/**
+  * Class: .ay-c-data-list
+  * @molecule Block: List
+  * @modifiers
+  *  .scheme_primary background azul
+  *  .scheme_secondary background verde
+  *  .scheme_alert background amarillo
+  *  .scheme_fail background rojo
+  *  .scheme_disabled background gris
+  * @section C03 data-list
+  * @markup
+  *  <a class="ay-c-data-list__item" href="/detalle-cita/431966">
+  *    <div class="ay-c-data-list__slot ay-c-data-list__slot_border">
+  *      <p class="ay-c-data-list__txt">Cita No. 431966</p>
+  *      <p class="ay-c-data-list__txt">Atendida</p>
+  *      <p class="ay-c-data-list__txt">Sala principal</p>
+  *      <p class="ay-c-data-list__txt">05/04/2017 12:30</p>
+  *    </div>
+  *    <div class="ay-c-data-list__column">
+  *      <div class="ay-c-data-list__group">
+  *        <p class="ay-c-data-list__txt"><strong class="ay-c-data-list__txt_bold">Luis Mauricio Valencia Gonzáles</strong></p>
+  *        <p class="ay-c-data-list__txt ay-c-data-list__txt_light">Cédula de Ciudadanía: 1018499112</p>
+  *      </div>
+  *      <div class="ay-c-data-list__group">
+  *        <p class="ay-c-data-list__txt"><strong class="ay-c-data-list__txt_bold">María Luisa Camargo Díaz</strong></p>
+  *        <p class="ay-c-data-list__txt ay-c-data-list__txt_light">Cédula de Ciudadanía: 1026592383</p>
+  *      </div>
+  *    </div>
+  *  </a>
+  */
+
+.ay-c-data-list__item {
+  @include flexbox();
+  @include justify-content(space-between);
+  @include align-items(center);
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border-left: 30px solid $c-secondary;
+  background-color: $c-bg-extra-light;
+  &:hover {
+      background-color: $c-primary-mild;
+  }
+  &.scheme_primary {
+      border-color: $c-primary;
+  }
+  &.scheme_secondary {
+      border-color: $c-secondary;
+  }
+  &.scheme_alert {
+      border-color: $c-warning;
+  }
+  &.scheme_fail {
+      border-color: $c-error;
+  }
+  &.scheme_disabled {
+      border-color: $c-on-mild;
+  }
+}
+
+.ay-c-data-list__slot {
+  margin: 6px 20px 6px 20px;
+  padding-right: 20px;
+  width: 20%;
+  border-right: 1px solid $c-border-medium;
+}
+
+.ay-c-data-list__column {
+  @include flexbox();
+  @include justify-content(space-around);
+  @include align-items(center);
+  width: 70%;
+}
+
+.ay-c-data-list__group {
+  @include flex(1);
+}
+
+.ay-c-data-list__txt {
+  font-family: $f-regular;
+  color: $c-on;
+  @include font-rem(16px);
+  &.ay-txt-success {
+      color: $c-success;
+  }
+  &.ay-txt-error {
+      color: $c-error;
+  }
+}
+
+.ay-c-data-list__txt_bold {
+  font-family: $f-extrabold;
+}
+
+.ay-c-data-list__txt_light {
+  color: $c-on-mild;
+  @include font-rem(14px);
+}
+
+.ay-c-data-list_half {
+  .ay-c-data-list__slot {
+    @include flexbox;
+    @include flex(1 1 50%);
+  }
+  .ay-c-data-list__column {
+    @include flex(1 1 50%);
+  }
+  .ay-data-list__label {
+    margin-right: 20px;
+  }
+  .ay-data-list__info {
+    .ay-c-data-list__txt {
+      @include font-rem(14px);
+      padding: 2px 0;
+    }
+
+  }
+}

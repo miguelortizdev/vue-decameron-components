@@ -1,0 +1,259 @@
+/*------------------------------------*\
+  C25 - Tabs
+  Description: Alerta de exito
+  Type: Toolbar
+  Path: /components/ResponseBar.vue
+\*------------------------------------*/
+
+/**
+  * Class: .ay-c-tab
+  * @molecule Block: Tabs
+  * @section C25 Tabs
+  * @markup
+  *  <div class="ay-c-tab" name="Asistentes">
+  *    <ul class="ay-c-tab__list">
+  *      <li class="ay-c-tab__item ay-c-tab__item_current"><a class="ay-c-tab__label">Todos[0]</a></li>
+  *      <li class="ay-c-tab__item"><a class="ay-c-tab__label">Desactivados[0]</a></li>
+  *    </ul>
+  *    <div class="ay-c-tab__content">
+  *      <div>
+  *        <p>Soy un asitemte</p>
+  *      </div>
+  *      <div style="display: none;">
+  *        <div class="ay-c-tab__row ay-c-tab__row_empty">
+  *          <p class="ay-c-tab__alert-txt">Aún no hay asistentes desactivados</p>
+  *        </div>
+  *      </div>
+  *    </div>
+  *  </div>
+  * @script
+  *  Tabs(:class="{'ay-c-tab_disable' : isAddAsist === true, 'ay-c-tab__disable' : desactivarAsistentes === true}" name='Asistentes')
+  *    //- La clase .ay-c-tab__set_current
+  *        Solo la debe tener la tab que este activa
+  *    //-Item tab 1
+  *    Tab(name="Todos[0]" :selected="true" v-show='AsistTabsShow')
+  *      //- La clase: .ay-c-tab__row_empty sólo va
+  *          cuando el contenido de esa tab es vacia
+  *      /////////////////////////////////////////////////
+  *      // Tab en estado selección de un asistente
+  *      // para desactivar
+  *      /////////////////////////////////////////////////
+  *      //Asistente 1
+  *      //Clase para que mantenga los estilos de visualización .ay-c-tab__row_query
+  *      .ay-c-tab__row.ay-c-tab__row_query
+  *        p soy un texto
+  *    Tab(name="Desactivados[0]" )
+  *      //- La clase: .ay-c-tab__row_empty sólo va
+  *          cuando el contenido de esa tab es vacia
+  *      .ay-c-tab__row.ay-c-tab__row_empty
+  *        p.ay-c-tab__alert-txt {{ $t('no-wizards-deactivated-yet') }}
+  */
+
+.ay-c-tab {
+  padding-bottom: 24px;
+}
+
+.ay-c-tab_disable {
+  .ay-c-tab__item {
+    .ay-c-tab__label {
+      pointer-events: none;
+      color: $c-on-light;
+
+    }
+  }
+}
+
+.ay-c-tab__content {
+  overflow: hidden;
+}
+
+.ay-c-tab__wrapper {
+  width: 100%;
+}
+
+.ay-c-tab__list {
+  @include flexbox;
+  margin-bottom: 12px;
+  list-style: none;
+}
+
+.ay-c-tab__item {
+  margin-right: 24px;
+  position: relative;
+  font-family: $f-bold;
+  color: $c-on;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    transition: all .3s linear;
+  }
+  &.ay-c-tab__item_current {
+    &:before {
+      width: 100%;
+      background-color: $c-primary;
+      transition: all .3s linear;
+    }
+    // border-bottom: 4px solid $c-primary;
+  }
+}
+
+.ay-c-tab__label {
+  display: block;
+  padding-bottom: 4px;
+  font-family: $f-bold;
+  @include font-rem(16px);
+  color: $c-on;
+  cursor: pointer;
+}
+
+.ay-c-tab__set {
+  display: none;
+  &.ay-c-tab__set_current {
+    display: block;
+  }
+}
+
+.ay-c-tab__row {
+  @include flexbox;
+  @include flex-wrap(wrap);
+  padding: 22px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: $c-bg-extra-light;
+  //el contenido de esta tab es vacio
+  &.ay-c-tab__row_empty {
+    padding: 26px;
+  }
+  &.ay-c-tab__row_all {
+    background-color: $c-neutro;
+  }
+  .ay-c-tab__inner {
+    width: 100%;
+  }
+  .ay-form__checkbox {
+    margin-top: 12px;
+    margin-right: 10px;
+  }
+  .ay-form__col {
+    .ay-form__checkbox {
+      margin-top: 0;
+    }
+  }
+}
+
+.ay-c-tab__disable {
+  .ay-c-tab__inner {
+    width: calc(100% - 32px);
+  }
+  .ay-c-tab__col-check {
+    .ay-form__input-no-appearance+.ay-form__check {
+      display: block;
+    }
+    .ay-form__input-no-appearance {
+      &:checked+.ay-form__check {
+        &:before {
+          background-color: $c-primary;
+          border-radius: 0;
+        }
+      }
+    }
+  }
+}
+
+.ay-c-tab__alert-txt {
+  font-family: $f-bold;
+  @include font-rem(18px);
+}
+
+.ay-c-tab__row_query {
+  .ay-c-form__row_wide {
+    display: none;
+  }
+}
+
+/*------------------------------------*\
+  Tabs verticales
+\*------------------------------------*/
+.ay-c-tab_vertical {
+  @include flexbox;
+  .ay-c-tab__list {
+    @include flex-direction(column);
+    @include flex(1 1 24%);
+    padding: 14px 0;
+    background-color: $c-bg-extra-light;
+  }
+  .ay-c-tab__content {
+    @include flex(2 1 76%);
+    padding: 20px;
+  }
+  .ay-c-tab__item {
+    padding: 6px 10px 4px 30px;
+    margin-right: 0;
+    &:before {
+      display: none;
+    }
+    .ay-c-tab__label {
+      padding: 0;
+      @include font-rem(14px);
+    }
+    &.ay-c-tab__item_current {
+      color: $c-neutro;
+      background-color: $c-primary;
+      .ay-c-tab__label {
+        color: $c-neutro;
+      }
+    }
+  }
+  .ay-c-tab__row {
+    background-color: initial;
+  }
+  .ay-table {
+    margin-bottom: 12px;
+  }
+  .ay-btn {
+    min-width: 100%;
+  }
+  .ay-c-tab__link {
+    display: block;
+    cursor: pointer;
+  }
+}
+/*------------------------------------*\
+  Dropdowb
+\*------------------------------------*/
+.ay-dropdown__content {
+  .ay-c-tab__item {
+    padding-left: 50px;
+  }
+}
+
+.ay-dropdown__btn {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0;
+  line-height: 1;
+  margin-left: 6px;
+  &:before {
+    display: block;
+    line-height: 6px;
+    @include font-rem(6px);
+    color: $c-neutro;
+    border-radius: 50%;
+    background-color: $c-on;
+  }
+  &.i-arrow-up {
+    &:before {
+      padding: 4px 3px 5px;
+    }
+  }
+  &.i-arrow-down {
+    &:before {
+      padding: 5px 3px;
+    }
+  }
+}

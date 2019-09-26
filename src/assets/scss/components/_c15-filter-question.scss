@@ -1,0 +1,85 @@
+/*------------------------------------*\
+  C15 - FilterQuestion
+  Description:  Este componente se encuentra en la
+  parte superior del formulario de creación de asistencia.
+  Es un filtro con dos checkbox que permite definir los
+  campos obligatorios, si dice sí, todos son obligatorios
+  y al finalizar la creación de la asistencia aparece el
+  componente C12-Response en su estado final-contract;
+  si dice no, solamente algunos campos serán obligatorios,
+  y al finalizar la creación de la asistencia aparece el
+  componente C12-Response en su estado detailed.
+  Type: Form
+  Path: /components/FilterQuestion.vue
+\*------------------------------------*/
+
+/**
+  * Class: .ay-c-filter-question
+  * @molecule Block: FilterQuestion
+  * @section C15 FilterQuestion
+  * @markup
+  *  <div class="ay-c-filter-question scheme_tertiary">
+  *    <div class="ay-c-filter-question__lead">
+  *      <p class="ay-c-filter-question__txt">¿Los clientes han decidido afiliarse a Multivacaciones?</p>
+  *    </div>
+  *    <div class="ay-c-filter-question__item">
+  *      <div class="ay-form__radiobox">
+  *        <input class="ay-form__input-no-appearance" id="radio-yes" type="radio" name="radio-custom" value="radio-custom" />
+  *        <label class="ay-form__radio" for="radio-custom"><span class="ay-form__radio-label">Si</span></label>
+  *      </div>
+  *      <div class="ay-form__radiobox">
+  *        <input class="ay-form__input-no-appearance" id="radio-not" type="radio" name="radio-custom" value="radio-custom" />
+  *        <label class="ay-form__radio" for="radio-custom"><span class="ay-form__radio-label">No</span></label>
+  *      </div>
+  *    </div>
+  *  </div>
+  */
+.ay-c-filter-question {
+  padding: 8px 20px;
+  color: $c-neutro;
+  &.scheme_primary {
+    background-color: $c-primary;
+    .ay-form__radio {
+      &:after {
+        background-color: $c-primary;
+      }
+    }
+  }
+  &.scheme_secondary {
+    background-color: $c-secondary;
+    .ay-form__radio {
+      &:after {
+        background-color: $c-secondary;
+      }
+    }
+  }
+  &.scheme_tertiary {
+    background-color: $c-tertiary;
+    .ay-form__radio {
+      &:after {
+        background-color: $c-tertiary;
+      }
+    }
+  }
+  .ay-form__radio-label {
+    color: $c-neutro;
+  }
+}
+
+.ay-c-filter-question {
+  @include flexbox();
+  @include align-items(center);
+}
+
+.ay-c-filter-question__lead,
+.ay-c-filter-question__item {
+  @include flex(1 50%);
+}
+
+.ay-c-filter-question__item {
+  @include flexbox();
+  @include align-items(center);
+  .ay-form__radiobox {
+    margin-right: 40px;
+  }
+}

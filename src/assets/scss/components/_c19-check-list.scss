@@ -1,0 +1,31 @@
+/*------------------------------------*\
+  C19 - CheckList
+  Description: Genera un PDF con los
+  documentos que se hayan "checkeado".
+  Este PDF podrá descargarse haciendo
+  click en el botón.
+  Type: Form
+  Path: /components/CheckList.vue
+\*------------------------------------*/
+
+.ay-c-check-list {
+  .ay-legend {
+    color: $c-on;
+  }
+}
+
+.ay-c-check-list__grid {
+  @include flexbox;
+  @include justify-content(center);
+}
+
+.ay-c-check-list__item {
+  @include flex(1 40%);
+  margin-bottom: 20px;
+  &:first-child {
+    @include flex(1 60%);
+    padding-right: 10px;
+    margin-right: 20px;
+    border-right: 1px solid $c-on;
+  }
+}

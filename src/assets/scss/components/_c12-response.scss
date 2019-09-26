@@ -1,0 +1,161 @@
+/*------------------------------------*\
+  C12 - Response
+  Description: Son respuestas que arroja
+  el sistema después de realizar una acción
+  concreta.
+  Type: Response
+  Path: /components/Response.vue
+\*------------------------------------*/
+
+/**
+  * Class: .ay-c-response
+  * @molecule Block: Response
+  * @section C12 Response
+  * @markup
+  *  <div class="ay-c-response">
+  *    <div class="ay-c-response__grid">
+  *      <div class="ay-c-response__lead">
+  *        <h3 class="ay-c-response__title ay-c-hero__title">Código #086574</h3>
+  *      </div>
+  *      <div class="ay-c-response__content">
+  *        <div class="ay-c-response__slot">
+  *          <!-- -->
+  *          <dl class="ay-c-response__list">
+  *            <dt class="ay-c-response__term">Nombre del titular</dt>
+  *            <dd class="ay-c-response__def">Juan Camilo Ruiz</dd>
+  *          </dl>
+  *          <dl class="ay-c-response__list">
+  *            <dt class="ay-c-response__term">Acompañante</dt>
+  *            <dd class="ay-c-response__def">Paula Andrea Lozano</dd>
+  *          </dl>
+  *          <dl class="ay-c-response__list">
+  *            <dt class="ay-c-response__term">Fecha de la asistencia</dt>
+  *            <dd class="ay-c-response__def">02/Dic/2018</dd>
+  *          </dl>
+  *          <dl class="ay-c-response__list">
+  *            <dt class="ay-c-response__term">Hora de la asistencia</dt>
+  *            <dd class="ay-c-response__def">03:30 PM</dd>
+  *          </dl>
+  *          <dl class="ay-c-response__list">
+  *            <dt class="ay-c-response__term">Lugar de la asistencia</dt>
+  *            <dd class="ay-c-response__def">Sala de ventas principal - Edificio Coomeva</dd>
+  *          </dl>
+  *          <dl class="ay-c-response__list">
+  *            <dt class="ay-c-response__term">Calificación familiar</dt>
+  *            <dd class="ay-c-response__def">Q</dd>
+  *          </dl>
+  *        </div>
+  *        <div class="ay-c-response__slot">
+  *          <h4 class="ay-c-response__subtitle">ASIGNACIÓN DE PERSONAL</h4>
+  *          <dl class="ay-c-response__list">
+  *            <dt class="ay-c-response__term">Nombre del titular</dt>
+  *            <dd class="ay-c-response__def">Juan Camilo Ruiz</dd>
+  *          </dl>
+  *          <dl class="ay-c-response__list">
+  *            <dt class="ay-c-response__term">Acompañante</dt>
+  *            <dd class="ay-c-response__def">Paula Andrea Lozano</dd>
+  *          </dl>
+  *        </div>
+  *      </div>
+  *    </div>
+  *  </div>
+  */
+.ay-c-response {
+  padding: 40px 0 30px;
+  background-color: $c-bg-extra-light;
+}
+
+.ay-c-response__grid {
+  @include flexbox();
+  @include flex-direction(column);
+  @include justify-content(center);
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.ay-c-response__lead {
+  @include flex(1);
+}
+
+.ay-c-response__content {
+  @include flex(2);
+}
+
+.ay-c-response__slot {
+  @include flexbox();
+  @include flex-wrap(wrap);
+}
+
+.ay-c-response__title {
+  padding-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.ay-c-response__subtitle {
+  width: 100%;
+  @include font-rem(18px);
+  text-transform: uppercase;
+  font-family: $f-bold;
+  margin-bottom: 16px;
+}
+
+.ay-c-response__list {
+  @include flex(1 100%);
+  margin-bottom: 10px;
+}
+
+.ay-c-response__term {
+  font-family: $f-bold;
+  @include font-rem(14px);
+  color: $c-on-mild;
+}
+
+.ay-c-response__def {
+  @include font-rem(16px);
+  color: $c-on;
+}
+
+/*------------------------------------*\
+  ResponseBar
+  Description: Alerta de exito
+  Type: Toolbar
+  Path: /components/ResponseBar.vue
+\*------------------------------------*/
+
+/**
+  * Class: .ay-c-response-bar
+  * @molecule Block: responseBar
+  * @section C25 ResponseBar
+  * @markup
+  *  <div class="ay-c-response-bar">
+  *    <p class="ay-c-response-bar__label">La asistencia fue creada con éxito</p>
+  *  </div>
+  */
+.ay-c-response-bar {
+  padding: 12px;
+  text-align: center;
+  background-color: $c-secondary;
+}
+
+.ay-c-response-bar__label {
+  color: $c-neutro;
+  @include font-rem(20px);
+  font-family: $f-bold;
+  text-transform: uppercase;
+}
+
+@include media-query(medium) {
+  .ay-c-response__list {
+    @include flex(1 50%);   
+  }
+}
+
+@include media-query(wide) {
+  .ay-c-response__grid {
+    @include flex-direction(row);
+  }
+  .ay-c-response__title {
+    padding-bottom: 0;
+  }
+}

@@ -1,0 +1,51 @@
+/*------------------------------------*\
+  Transversal Elements
+  #Styles for links
+\*------------------------------------*/
+
+a {
+  text-decoration: none;
+  outline-width: 0;
+
+  &:focus {
+    outline-width: 0;
+  }
+}
+/**
+  * Class: .ay-link
+  * @atom Link underline
+  * @section Enlaces
+  * @modifiers
+  *  .ay-link_primary Link color $c-primary
+  * @markup
+  *  <div class="sg-bg">
+  *   <a class="ay-link" href="#"> Link </a>
+  *  </div>
+  */
+.ay-link {
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  color: $c-neutro;
+  font-family: $f-bold;
+  text-decoration: underline;
+  transition: all .2s;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $c-primary;
+  }
+  &.ay-link_primary {
+    color: $c-primary;
+    &:hover,
+    &:focus,
+    &:active {
+      color: $c-primary-over;
+    }
+  }
+}
+
+
+
+

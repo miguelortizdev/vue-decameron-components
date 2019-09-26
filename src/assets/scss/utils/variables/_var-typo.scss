@@ -1,0 +1,84 @@
+//*------------------------------------*\
+// Variables Typo font
+//*------------------------------------*/
+
+/**
+ * La ruta relativa a la carpeta de fuentes
+ * @nuclide Root
+ * @section Variables Typo > Config
+ */
+$font-path: "~@/assets/fonts" !default;
+/**
+ * Font family: 'Akrobat ExtraBold'
+ * @nuclide Font-family
+ * @section Variables Typo > Font-family
+ */
+$f-extrabold    : 'Akrobat-ExtraBold', Arial, sans-serif;
+/**
+ * Font family: Akrobat Bold
+ * @nuclide Font-family
+ * @section Variables Typo > Font-family
+ */
+$f-bold    : 'Akrobat-Bold', Arial, sans-serif;
+/**
+ * Font family: Akrobat SemiBold
+ * @nuclide Font-family
+ * @section Variables Typo > Font-family
+ */
+$f-semibold: 'Akrobat-SemiBold', Arial, sans-serif;
+/**
+ * Font family: Akrobat Black
+ * @nuclide Font-family
+ * @section Variables Typo > Font-family
+ */
+$f-black : 'Akrobat-Black', Arial, sans-serif;
+/**
+ * Font family: Akrobat Regular
+ * @nuclide Font-family
+ * @section Variables Typo > Font-family
+ */
+$f-regular : 'Akrobat-Regular', Arial, sans-serif;
+/**
+ * Font family: Akrobat Thin
+ * @nuclide Font-family
+ * @section Variables Typo > Font-family
+ */
+$f-thin   : 'Akrobat-Thin', Arial, sans-serif;
+/**
+ * Font family: Akrobat Light
+ * @nuclide Font-family
+ * @section Variables Typo > Font-family
+ */
+$f-light   : 'Akrobat-Light', Arial, sans-serif;
+/**
+ * Font family: Akrobat ExtraLight
+ * @nuclide Font-family
+ * @section Variables Typo > Font-family
+ */
+$f-extralight   : 'Akrobat-ExtraLight', Arial, sans-serif;
+
+
+// fuentes de icono
+/**
+ * La ruta relativa a la carpeta de fuentes
+ * @nuclide icomoon font-family
+ * @section Variables Typo > Config
+ */
+$ico-font-family: "decameron-ico" !default;
+// Variables Iconos
+$i-search       : "\e900";
+$i-data         : "\e901";
+$i-edit         : "\e902";
+$i-plus         : "\e903";
+$i-x            : "\e904";
+$i-check        : "\e905";
+$i-triangle     : "\e906";
+$i-arrow-up     : "\e90d";
+$i-arrow-down   : "\e907";
+$i-arrow-up-down: "\e908";
+$i-calendar     : "\e909";
+$i-id-card      : "\e90a";
+$i-notes        : "\e90b";
+$i-pdf          : "\e90c";
+$i-minus        : "\e90e";
+$i-alert        : "\e90f";

@@ -1,0 +1,436 @@
+//*! base normalize.css v7.0.0
+
+
+// * Eliminar el margen en todos los navegadores (obstinado).
+body,
+h1, h2, h3, h4, h5, h6,
+dl, dd, ol, ul {
+    margin:  0;
+    padding: 0;
+}
+
+//* Document
+//==========================================================================
+
+ // * 1. Corrija line-height en todos los navegadores.
+ // * 2. Evite los ajustes del tamaño de fuente después de cambios de orientación en
+ // * IE en Windows Phone y en iOS.
+
+html {
+  font-size: 16px;
+  line-height: 1.15; //* 1
+  -ms-text-size-adjust: 100%; //* 2
+  -webkit-text-size-adjust: 100%; //* 2
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+//* Sections
+//==========================================================================
+
+ // * Agrega la visualización correcta en IE 9-.
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+
+ // *Corrige el tamaño de la fuente y el margen en elementos `h1` dentro de `section` and
+ // * `article` en Chrome, Firefox y Safari.
+
+h1 {
+  font-size: 2em;
+}
+
+//* Grouping content
+//==========================================================================
+
+ // * Agrega la visualización correcta en IE 9-.
+ // * 1. Agrega la visualización correcta en IE.
+
+figcaption,
+figure,
+main { //* 1
+  display: block;
+}
+
+ // * Agrega el correcto margin en IE 8.
+
+figure {
+  margin: 0;
+}
+
+ // * 1. Agrega el correcto box sizing en Firefox.
+ // * 2. Mostrar el desbordamiento en Edge and IE.
+
+hr {
+  box-sizing: content-box; //* 1
+  height: 0; //* 1
+  overflow: visible; //* 2
+}
+
+//* Text-level semantics
+//==========================================================================
+
+ // * 1. Elimina el gray background en links activos en IE 10.
+ // * 2. Elimina espacio en links underline en iOS 8+ and Safari 8+.
+
+a {
+  background-color: transparent; //* 1
+  -webkit-text-decoration-skip: objects; //* 2
+  // * Remove the outline on focused links when they are also active or hovered
+  // * in all browsers (opinionated).
+  &:active,
+  &:hover {
+    outline-width: 0;
+  }
+}
+
+
+
+ // * 1. Elimina el bottom border en Chrome 57- and Firefox 39-.
+ // * 2. Agrega el correcto text decoration en Chrome, Edge, IE, Opera, and Safari.
+
+abbr[title] {
+  border-bottom: none; //* 1
+  text-decoration: underline; //* 2
+  text-decoration: underline dotted; //* 2
+}
+
+// * Give a help cursor to elements that give extra info on `:hover`.
+abbr[title],
+dfn[title] {
+  cursor: help;
+}
+
+ // * 1. Evite la aplicación duplicada de `bolder` mediante la siguiente regla
+ // * en Safari 6.
+ // * 2. Agrega el correcto font weight en Chrome, Edge, and Safari.
+
+b,
+strong {
+  font-weight: inherit; //* 1
+  font-weight: bolder; //* 2
+}
+
+
+ // * 1. Corrige la inheritance and scaling of font size en todos los browsers.
+ // * 2. Corrige la odd `em` font sizing en todos los browsers.
+code,
+pre,
+kbd,
+samp {
+  font-family: monospace, monospace; //* 1
+  font-size: 1em; //* 2
+}
+
+ // * Agrega el correcto font style en Android 4.3-.
+
+dfn {
+  font-style: italic;
+}
+
+ // * Agrega el correcto background and color en IE 9-.
+
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+ // * Agrega el correcto font size en todos los browsers.
+
+small {
+  font-size: 80%;
+}
+
+ // * Evite que los elementos `sub` y` sup` afecten el line height en
+ // * todos los browsers.
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+blockquote {
+  margin: 0;
+}
+
+//* Embedded content
+//==========================================================================
+
+ // * Agrega la visualización correcta en IE 9-.
+
+audio,
+video {
+  display: inline-block;
+  vertical-align: baseline; ///* 2
+}
+
+
+
+ // * Agrega la visualización correcta en iOS 4-7.
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+ // * Elimina the border on images inside links en IE 10-.
+
+img {
+  border-style: none;
+}
+
+ // * Hide the overflow en IE.
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+//* Forms
+//==========================================================================
+
+// * Address Firefox 4+ setting `line-height` on `input` using `
+// * !important` in the UA stylesheet.
+
+input {
+  line-height: normal;
+}
+
+ // * 1. Cambia los estilos de fuente en todos los browsers (opinionated).
+ // * 2. Elimina the margin en Firefox and Safari.
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: sans-serif; //* 1
+  font-size: 100%; //* 1
+  line-height: 1.15; //* 1
+  margin: 0; //* 2
+}
+
+ // * Mostrar el desbordamiento en IE.
+ // * 1. Mostrar el desbordamiento en Edge.
+
+button,
+input { //* 1
+  overflow: visible;
+}
+
+ // * Elimina la herencia de text transform en Edge, Firefox, and IE.
+ // * 1. Elimina la herencia de text transform en Firefox.
+
+button,
+select { //* 1
+  text-transform: none;
+}
+
+
+
+ // * Elimina el fondo en  Firefox, and IE.
+
+ button {
+   background-color: transparent;
+ }
+
+
+// * Restore the font weight unset by the previous rule.
+// * Don't inherit the `font-weight` (applied by a rule above).
+// * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+optgroup {
+  font-weight: bold;
+}
+
+ // * 1. Evite un error de WebKit donde (2) destruye `audio` y `video` controles
+ // *    nativos en Android 4.
+ // * 2. Corrige la incapacidad de estilo de tipo clicable en iOS and Safari.
+ // * 3. Improve usability and consistency of cursor style between
+ // * image-type input` and others.
+
+button,
+html [type="button"], //* 1
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; //* 2
+  cursor: pointer; //* 3
+}
+
+ // * Elimina the inner border and padding en Firefox.
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+ // * Restore the focus styles unset by the previous rule.
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+// * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+// * `font-size` values of the `input`, it causes the cursor style of the
+// * decrement button to change from `default` to `text`.
+// * Correct the cursor style of increment and decrement buttons in Chrome.
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+ // * Corrige la padding en Firefox.
+
+fieldset {
+  margin: 0 2px;
+  padding: 0.35em 0.75em 0.625em;
+}
+
+ // * 1. Corrige el ajuste de texto en Edge and IE.
+ // * 2. Corrige el herencia de color de elementos `fieldset` en IE.
+ // * 3. Elimina the padding para no quedar atrapados cuando se ponen a cero los
+ // *    elementos `fieldset` en todos los browsers.
+ // * 4. Correct `color` not being inherited in IE 8/9/10/11.
+
+legend {
+  box-sizing: border-box; //* 1
+  color: inherit; //* 2
+  display: table; //* 1
+  max-width: 100%; //* 1
+  padding: 0; //* 3
+  white-space: normal; //* 1
+  border: 0; ///* 4
+}
+
+ // * 1. Agrega la visualización correcta en IE 9-.
+ // * 2. Agrega la alineación vertical correcta en Chrome, Firefox, and Opera.
+
+progress {
+  display: inline-block; //* 1
+  vertical-align: baseline; //* 2
+}
+
+ // * Elimina scrollbar vertical por defecto en IE.
+
+textarea {
+  overflow: auto;
+}
+
+ // * 1. Agrega el correcto box sizing en IE 10-.
+ // * 2. Elimina el padding en IE 10-.
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; //* 1
+  padding: 0; //* 2
+}
+
+ // * Corrige la cursor style of increment and decrement buttons en Chrome.
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+ // * 1. Corrige la apariencia extraña en Chrome and Safari.
+ // * 2. Corrige estilo de contorno en Safari.
+
+[type="search"] {
+  -webkit-appearance: textfield; //* 1
+  outline-offset: -2px; //* 2
+}
+
+ // * Elimina el padding interno del "botón cancelar" en Chrome and Safari on macOS.
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+ // * 1. Corrige la apariencia del botón type="file" en iOS and Safari.
+ // * 2. Cambia las propiedades de fuente a `inherit` en Safari.
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; //* 1
+  font: inherit; //* 2
+}
+
+//* Tables
+//==========================================================================
+//* Remove most spacing between table cells.
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,th {
+  padding: 0;
+}
+
+
+//* Interactive
+//==========================================================================
+
+//*
+ // * Agrega la visualización correcta en IE 9-.
+ // * 1. Agrega la visualización correcta en Edge, IE, and Firefox.
+
+details, //* 1
+menu {
+  display: block;
+}
+
+//*
+ // * Agrega la visualización correcta en todos los browsers.
+
+summary {
+  display: list-item;
+}
+
+//* Scripting
+//==========================================================================
+
+ // * Agrega la visualización correcta en IE 9-.
+
+canvas {
+  display: inline-block;
+}
+
+ // * Agrega la visualización correcta en IE.
+
+template {
+  display: none;
+}
+
+//* Hidden
+//==========================================================================
+
+ // * Agrega la visualización correcta en IE 10-.
+
+[hidden] {
+  display: none;
+}

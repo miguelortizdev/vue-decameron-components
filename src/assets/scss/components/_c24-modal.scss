@@ -1,0 +1,88 @@
+/*------------------------------------*\
+  C24 - Modal
+  Description: Aparece después de hacer click
+  en el botón "Confirmar contrato", posee dos
+  botones "Confirmar","Cancelar". Después de
+  confirmar contrato en el sistema, este no
+  se puede volver a editar durante el flujo.
+  Type: Modal
+  Path: /components/Modal.vue
+\*------------------------------------*/
+
+.ay-c-modal {
+  position: absolute;
+  width: 90%;
+  max-width: 488px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 34px 30px 30px;
+  background-color: $c-neutro;
+  border-radius: 6px;
+  opacity: 0;
+  z-index: -1;
+  transition: all .3s linear;
+  &.ay-c-modal_show {
+    opacity: 1;
+    z-index: 10004;
+  }
+  .hidden {
+    display: none;
+  }
+}
+
+.ay-c-modal__title {
+  padding-bottom: 30px;
+  font-family: $f-bold;
+  @include font-rem(18px);
+  text-transform: uppercase;
+  display: block;
+  text-align: center;
+}
+
+.ay-c-modal__set {
+  padding-bottom: 26px;
+}
+
+.ay-c-modal__strong {
+  display: block;
+  padding-bottom: 4px;
+  text-align: center;
+  @include font-rem(18px);
+  font-family: $f-bold;
+}
+
+.ay-c-modal__txt {
+  padding-bottom: 10px;
+  line-height: 1.2;
+  @include font-rem(14px);
+}
+
+
+.ay-c-modal__actions {
+  @include flexbox;
+  @include justify-content(center);
+  .ay-btn {
+    min-width: 140px;
+    margin: 0 6px;
+  }
+}
+
+.ay-c-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  &:before {
+    display: inline-block;
+    @include font-rem(10px);
+    color: $c-tertiary;
+    border: 2px solid $c-tertiary;
+    border-radius: 50%;
+    line-height: 1;
+    padding: 3px;
+  }
+}

@@ -1,0 +1,179 @@
+/*------------------------------------*\
+    Transversal Elements
+    #Styles for tables
+\*------------------------------------*/
+
+/**
+  * Class: .ay-table
+  * @molecule  Block: table
+  * @section C14 data-table
+  * @markup
+  *  <table class="ay-table.ay-table_center" sumary="Resumen del contenido de una tabla">
+  *   <caption class="ay-legend ay-table__legend"> Historial de pagos pick up </caption>
+  *   <thead class="ay-table__head">
+  *    <tr class="ay-table__row">
+  *      <th class="ay-table__head-cell" id="n-fee"> No. cuota </th>
+  *      <th class="ay-table__head-cell" id="n-receipt"> No. recibo </th>
+  *      <th class="ay-table__head-cell" id="date">Fecha a pagar</th>
+  *      <th class="ay-table__head-cell" id="value">Valor cuota</th>
+  *      <th class="ay-table__head-cell" id="balance">Saldo</th>
+  *      <th class="ay-table__head-cell" id="balance">% de procesabilidad</th>
+  *      <th class="ay-table__head-cell" id="capital">Capital</th>
+  *      <th class="ay-table__head-cell" id="interest">Interés</th>
+  *    </tr>
+  *   </thead>
+  *   <tbody class="ay-table__body">
+  *      <tr class="ay-table__row ay-table__row_error">
+  *          <td class="ay-table__cell" headers="n-fee"> <span class="ay-signal ay-signal_error">335</span> </td>
+  *          <td class="ay-table__cell" headers="n-receipt"> T228843 </td>
+  *          <td class="ay-table__cell" headers="date"> 03/Ago/2018 </td>
+  *          <td class="ay-table__cell" headers="value"> $ 100,00 USD </td>
+  *          <td class="ay-table__cell" headers="balance"> $ 100,00 USD </td>
+  *          <td class="ay-table__cell" headers="percent"> 10.00 % </td>
+  *          <td class="ay-table__cell" headers="capital"> $ 100,00 USD </td>
+  *          <td class="ay-table__cell" headers="interest"> $ 0,00 USD </td>
+  *      </tr>
+  *      <tr class="ay-table__row">
+  *          <td class="ay-table__cell" headers="n-fee"> <span class="ay-signal ay-signal_warning"> 3 </span> </td>
+  *          <td class="ay-table__cell" headers="n-receipt"> T228845 </td>
+  *          <td class="ay-table__cell" headers="date"> 01/Ago/2018 </td>
+  *          <td class="ay-table__cell" headers="value"> $ 100,00 USD </td>
+  *          <td class="ay-table__cell" headers="balance"> $ 100,00 USD </td>
+  *          <td class="ay-table__cell" headers="percent"> 10.00 % </td>
+  *          <td class="ay-table__cell" headers="capital"> $ 100,00 USD </td>
+  *          <td class="ay-table__cell" headers="interest"> $ 0,00 USD </td>
+  *      </tr>
+  *      <tr class="ay-table__row">
+  *          <td class="ay-table__cell" headers="n-fee"> <span class="ay-signal"> 2 </span> </td>
+  *          <td class="ay-table__cell" headers="n-receipt"> T228845 </td>
+  *          <td class="ay-table__cell" headers="date"> 01/Ago/2018 </td>
+  *          <td class="ay-table__cell" headers="value"> $ 100,00 USD </td>
+  *          <td class="ay-table__cell" headers="balance"> $ 100,00 USD </td>
+  *          <td class="ay-table__cell" headers="percent"> 10.00 % </td>
+  *          <td class="ay-table__cell" headers="capital"> $ 100,00 USD </td>
+  *          <td class="ay-table__cell" headers="interest"> $ 0,00 USD </td>
+  *      </tr>
+  *      <tr class="ay-table__row">
+  *          <td class="ay-table__cell" headers="n-fee"> <span class="ay-signal"> 1 </span> </td>
+  *          <td class="ay-table__cell" headers="n-receipt"> T228845 </td>
+  *          <td class="ay-table__cell" headers="date"> 01/Ago/2018 </td>
+  *          <td class="ay-table__cell" headers="value"> $ 100,00 USD </td>
+  *          <td class="ay-table__cell" headers="balance"> $ 100,00 USD </td>
+  *          <td class="ay-table__cell" headers="percent"> 10.00 % </td>
+  *          <td class="ay-table__cell" headers="capital"> $ 100,00 USD </td>
+  *          <td class="ay-table__cell" headers="interest"> $ 0,00 USD </td>
+  *      </tr>
+  *   </tbody>
+  *  </table>
+  */
+.ay-table {
+  width: 100%;
+  &.ay-table_center {
+    text-align: center;
+    .ay-table__head-cell {
+      text-align: center;
+    }
+  }
+}
+
+.ay-table__head-cell {
+  text-align: left;
+  padding: 10px;
+  text-transform: uppercase;
+  color: $c-neutro;
+  @include font-rem(14px);
+  font-family: $f-bold;
+  font-weight: normal;
+  background: $c-primary;
+
+  &:first-child {
+    border-radius: 5px 0 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 5px 0 0;
+  }
+}
+
+.ay-table__body {
+  border: 1px solid $c-bg-light;
+}
+
+.ay-table__row {
+  &:nth-of-type(2n+1) {
+    background-color: $c-primary-light;
+
+    &.ay-table__row_error {
+      background-color: rgba($c-error, .15);
+    }
+  }
+}
+
+.ay-table__row_error {
+  background-color: rgba($c-error, .15);
+
+  .ay-signal {
+    &:before {
+      background-color: $c-error;
+    }
+  }
+}
+
+.ay-table__cell {
+  padding: 10px;
+  vertical-align: middle;
+  color: $c-on;
+  font-family: $f-regular;
+  @include font-rem(12px);
+}
+
+/**
+  * Class: .ay-signal | Block: table | C14 data-table
+  * @atom  Semáforo de estados
+  * @section Estados
+  * @modifiers
+  *  .ay-signal_error Cambia el color de fondo del estado
+  *  .ay-signal_warning Cambia el color de fondo del estado
+  * @markup
+  *   <p class="sg-block">
+  *     <span class="ay-signal"> 2 </span>
+  *   </p>
+  *   <p class="sg-block">
+  *     <span class="ay-signal ay-signal_error">1</span>
+  *   </p>
+  *   <p class="sg-block">
+  *     <span class="ay-signal ay-signal_warning">3</span>
+  *   </p>
+  */
+.ay-signal {
+  @include flexbox;
+  @include align-items(center);
+  &:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 12px;
+    height: 12px;
+    margin-right: 12px;
+    border-radius: 50%;
+    background-color: $c-secondary;
+  }
+}
+
+.ay-signal_error {
+  &:before {
+    background-color: $c-error;
+  }
+}
+
+.ay-signal_warning {
+  &:before {
+    background-color: $c-warning;
+  }
+}
+
+.ay-signal_disabled {
+  &:before {
+    background-color: $c-disabled;
+  }
+}

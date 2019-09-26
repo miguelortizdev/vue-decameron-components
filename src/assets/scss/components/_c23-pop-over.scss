@@ -1,0 +1,93 @@
+/*------------------------------------*\
+  C23 - Popover
+  Description: Alerta de exito
+  Type: Input
+  Path: /components/
+\*------------------------------------*/
+
+/**
+  * Class: .ay-c-popover
+  * @molecule Block: Popover
+  * @section C23 Popover
+  * @markup
+  *  <label class="ay-form__label ay-form__popover" for="name">Nombres:
+  *    <button class="ay-c-popover" type="button">?<span class="ay-c-popover__hidden">Ayuda</span>
+  *      <div class="ay-c-popover__body">
+  *        <p class="ay-c-popover__txt">texto de popover</p>
+  *      </div>
+  *    </button>
+  *  </label>
+  */
+.ay-form__popover {
+  position: relative;
+}
+
+.ay-c-popover {
+  position: absolute;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  @include font-rem(10px);
+  text-align: center;
+  border-radius: 50%;
+  line-height: 14px;
+  color: $c-neutro;
+  background-color: $c-primary;
+}
+
+.ay-c-popover:hover .ay-c-popover__body {
+  z-index: 10;
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, 4px);
+  transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+}
+
+.ay-c-popover__body {
+  position: absolute;
+  right: -4px;
+  width: 200px;
+  padding: 10px;
+  opacity: 0;
+  text-align: left;
+  visibility: hidden;
+  transform: translate(0, 20px);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  border-radius: 5px;
+  border: 1px solid $c-border-medium;
+  background-color: $c-neutro;
+  &:before {
+    content: '';
+    position: absolute;
+    right: 4px;
+    top: -6px;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 6px 6px 6px;
+    border-color: transparent transparent #dddddd transparent;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    right: 4px;
+    top: -5px;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 6px 6px 6px;
+    border-color: transparent transparent #ffffff transparent;
+  }
+}
+
+.ay-c-popover__txt {
+  color: $c-on;
+}
+
+.ay-c-popover__hidden {
+  display: none;
+}
+

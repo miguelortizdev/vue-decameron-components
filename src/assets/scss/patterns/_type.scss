@@ -1,0 +1,125 @@
+/*------------------------------------*\
+    Transversal Elements
+    #Styles for text
+\*------------------------------------*/
+
+// Guía de estilos separar bloque
+.sg-block {
+    padding: 12px;
+    p {
+        padding-bottom: 10px;
+        color: #9b9b9b;
+        font-family: monospace;
+    }
+}
+
+.sg-bg {
+    padding: 12px;
+    background-color: #dddddd;
+    &-1 {
+        background-color: $c-primary;
+    }
+    &-2 {
+        background-color: $c-secondary;
+    }
+    &-3 {
+        background-color: $c-tertiary;
+    }
+}
+
+.SG-table__cell,
+.SG-component__preview--description {
+    font-family: monospace;
+}
+
+
+/**
+  * Class: .ay-theme, Font-size: 16px base para calcular el tamaño de la fuente en rems
+  * @atom Base: HTML
+  * @section Textos
+  * @markup
+  *  <html class="ay-theme">
+  *     ...
+  *  </html>
+  */
+
+.ay-theme {
+    @include font-rem(16px);
+}
+
+
+/**
+ * .ay-text, Font-family: Akrobat Regular, Font-size: 14px, color: $c-on
+ * @atom Texto Body
+ * @section Textos
+ * @markup
+ *  <p class="ay-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ *  Pellentesque ac lectus pharetra, consequat dolor eget, vulputate tellus.
+ *  Fusce imperdiet aliquet vulputate. Aliquam convallis imperdiet fermentum.
+ *  Aliquam ut urna interdum, malesuada.</p>
+ */
+
+body,
+.ay-text {
+    line-height: 1.4;
+    color: $c-on;
+    @include font-rem(14px);
+    font-family: $f-regular;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+
+/**
+ * .ay-text_strong, Font-family: Akrobat Bold, Font-size: inherit, color: inherit
+ * @atom Texto Bold
+ * @section Textos
+ * @markup
+ *  <p class="ay-text">Lorem ipsum dolor sit amet, <strong class="ay-text_strong"> Aliquam convallis </strong>.
+ *  Aliquam ut urna interdum, malesuada.</p>
+ */
+
+.ay-text_strong {
+    font-family: $f-bold;
+    font-weight: normal;
+}
+
+
+/**
+ * .ay-text, Font-style: italic; Font-family: inherit, Font-size: inherit, color: inherit
+ * @atom Texto Italic
+ * @section Textos
+ * @markup
+ *  <p class="ay-text">Lorem ipsum dolor sit amet, <em class="ay-text_italic"> Aliquam convallis </em>.</p>
+ */
+
+.ay-text_italic {
+    font-style: italic;
+}
+
+.ay-label {
+    display: block;
+    //padding-bottom: 6px;
+    color: $c-on-mild;
+    font-family: $f-bold;
+    @include font-rem(14px);
+    //Estilos genericos para validaciones
+    width: 100%;
+    line-height: 1.2;
+    min-height: 38px;
+    @include flexbox();
+    @include align-items(center);
+    @include align-self(flex-start);
+    //end Estilos genericos para validaciones
+}
+
+.ay-txt-success {
+    color: $c-success;
+}
+
+.ay-txt-error {
+    color: $c-error;
+}

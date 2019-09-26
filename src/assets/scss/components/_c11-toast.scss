@@ -1,0 +1,66 @@
+/*------------------------------------*\
+  C11 - Toast
+  Description: Aparecen por un tiempo limitado,
+  luego desaparecen.
+  Type: Popover
+  Path: /components/Toast.vue
+\*------------------------------------*/
+
+/**
+  * Class: .ay-c-toast
+  * @molecule Block: Toast
+  * @section C11 Toast
+  * @modifiers
+  *  .ay-c-toast.scheme_filed Cambia el color de fondo del estado
+  * @markup
+  *  <div class="ay-c-toast">
+  *    <div class="ay-c-toast__grid i-check">
+  *      <p class="ay-c-toast__txt">¡La información ha sido actualizada exitosamente!</p>
+  *    </div>
+  *  </div>
+  */
+.ay-c-toast {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 4;
+  padding: 12px;
+  color: $c-neutro;
+  background-color: $c-secondary;
+  .ay-c-toast__grid {
+    &:before {
+      color: $c-secondary;
+      background-color: $c-neutro;
+    }
+  }
+  &.scheme_fail {
+    background-color: $c-error;
+    .ay-c-toast__grid {
+      &:before {
+        color: $c-error;
+        background-color: $c-neutro;
+      }
+    }
+  }
+}
+
+.ay-c-toast__grid {
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
+  &:before {
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(center);
+    @include font-rem(12px);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    margin-right: 22px;
+  }
+}
+
+.ay-c-toast__txt {
+  @include font-rem(16px);
+}

@@ -1,0 +1,136 @@
+/*------------------------------------*\
+  C10 - FixedBar
+  Description: Se encuentra fija en la
+  parte inferior de la pantalla.
+  Type: Toolbar
+  Path: /components/FixedBar.vue
+\*------------------------------------*/
+
+/**
+  * Class: .ay-c-fixed-bar
+  * @molecule Block: FixedBar
+  * @section C10 FixedBar
+  * @modifiers
+  *  .ay-c-fixed-bar.scheme_primary Cambia el color de fondo a azul
+  *  .ay-c-fixed-bar.scheme_secondary Cambia el color de fondo del verde
+  * @markup
+  *  <div class="ay-c-fixed-bar scheme_tertiary">
+  *    <div class="ay-c-fixed-bar__grid">
+  *      <div class="ay-c-fixed-bar__item">
+  *        <p class="ay-c-fixed-bar__label">Para registrar la asistencia en el sistema, haga click en el siguiente botón.</p>
+  *      </div>
+  *      <div class="ay-c-fixed-bar__item">
+  *        <button class="ay-btn ay-btn_outline ay-btn-ico i-edit">Editar Información</button>
+  *        <button class="ay-btn ay-btn_neutro">Realizar comentario</button>
+  *      </div>
+  *    </div>
+  *  </div>
+  */
+.ay-c-fixed-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+  transition: opacity .3s linear;
+  z-index: 10002;
+  width: 100%;
+  padding: 8px;
+  &.scheme_primary {
+    background-color: $c-primary;
+    .ay-btn {
+      color: $c-primary;
+      border-color: $c-primary;
+      &.ay-btn_neutro {
+        background-color: $c-neutro;
+        border-color: $c-neutro;
+        &:hover {
+          color: $c-neutro;
+          background-color: $c-primary;
+        }
+      }
+      &.ay-btn_outline {
+        color: $c-neutro;
+        background-color: $c-primary;
+        border-color: $c-neutro;
+        &:hover {
+          color: $c-primary;
+          background-color: $c-neutro;
+        }
+      }
+    }
+  }
+  &.scheme_secondary {
+    background-color: $c-secondary;
+    .ay-btn {
+      color: $c-secondary;
+      border-color: $c-secondary;
+      &.ay-btn_neutro {
+        background-color: $c-neutro;
+        border-color: $c-neutro;
+        &:hover {
+          color: $c-neutro;
+          background-color: $c-secondary;
+        }
+      }
+      &.ay-btn_outline {
+        color: $c-neutro;
+        background-color: $c-secondary;
+        border-color: $c-neutro;
+        &:hover {
+          color: $c-secondary;
+          background-color: $c-neutro;
+        }
+      }
+    }
+  }
+  &.scheme_tertiary {
+    background-color: $c-tertiary;
+    .ay-btn_outline {
+      color: $c-neutro;
+      background-color: $c-tertiary;
+      border-color: $c-neutro;
+      &:hover {
+        color: $c-tertiary;
+        background-color: $c-neutro;
+      }
+    }
+  }
+  .ay-btn {
+    margin: 4px 6px;
+  }
+}
+
+.ay-view_fixed-bar_hide {
+  .ay-c-fixed-bar {
+    opacity: 0;
+  }
+}
+
+.ay-c-fixed-bar__grid {
+  @include flexbox();
+  @include justify-content(space-between);
+  @include align-items(center);
+  @include flex-wrap(wrap);
+  width: 100%;
+}
+
+.ay-c-fixed-bar__item {
+  @include flex(1 100%);
+  max-width: 100%;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.ay-c-fixed-bar__label {
+  @include font-rem(16px);
+  color: $c-neutro;
+}
+
+@include media-query(wide) {
+   .ay-c-fixed-bar__item {
+      @include flex(1 50%);
+      max-width: 50%;
+      margin: 0 auto;
+      padding: 0;
+   }
+}

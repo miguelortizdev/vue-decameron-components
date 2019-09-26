@@ -1,0 +1,82 @@
+/*------------------------------------*\
+  C09 - FormAdd
+  Description: Cuando se hace click en el
+  botón de este componente, los inputs que
+  contiene se duplican hacia abajo.
+  Se puede agregar al formulario un número
+  indeterminado de casillas.
+  Type: Form
+  Path: /components/FormAdd.vue
+\*------------------------------------*/
+
+/**
+  * Class: .ay-c-form-add
+  * @molecule Block: FormAdd
+  * @section C09 FormAdd
+  * @markup
+  *  <fieldset class="ay-c-form-add">
+  *   <div class="ay-c-form__row">
+  *     <div class="ay-form__col">
+  *       <label class="ay-form__label" for="numberPhone">Cantidad<sup class="ay-form__sup">*</sup></label>
+  *       <input class="ay-form__field touched" name="numberPhone1" data-vv-as="Cantidad" type="number" aria-required="true" aria-invalid="false" /><span class="ay-form__msg"></span>
+  *     </div>
+  *     <div class="ay-form__col">
+  *       <label class="ay-form__label" for="">Franquicias<sup class="ay-form__sup">*</sup></label>
+  *       <div class="multiselect" tabindex="-1" data-vv-as="Franquicias" aria-required="true" aria-invalid="false">
+  *         <div class="multiselect__select"></div>
+  *         <div class="multiselect__tags">
+  *           <div class="multiselect__tags-wrap" style="display: none;"></div>
+  *           <!-- -->
+  *           <div class="multiselect__spinner" style="display: none;"></div>
+  *           <input class="multiselect__input" name="1" type="text" autocomplete="off" placeholder="Seleccionar" tabindex="0" style="width: 0px; position: absolute; padding: 0px;" />
+  *           <!-- --><span class="multiselect__placeholder">Seleccionar</span>
+  *         </div>
+  *         <div class="multiselect__content-wrapper" tabindex="-1" style="max-height: 300px; display: none;">
+  *           <ul class="multiselect__content" style="display: inline-block;">
+  *             <!-- -->
+  *             <li class="multiselect__element"><span class="multiselect__option multiselect__option--highlight" data-select="" data-selected="" data-deselect=""><span>Visa</span></span>
+  *               <!-- -->
+  *             </li>
+  *             <li class="multiselect__element"><span class="multiselect__option" data-select="" data-selected="" data-deselect=""><span>Mastercard</span></span>
+  *               <!-- -->
+  *             </li>
+  *             <li class="multiselect__element"><span class="multiselect__option" data-select="" data-selected="" data-deselect=""><span>Maestro</span></span>
+  *               <!-- -->
+  *             </li>
+  *             <li style="display: none;"><span class="multiselect__option">No elements found. Consider changing the search query.</span></li>
+  *             <li style="display: none;"><span class="multiselect__option">List is empty.</span></li>
+  *           </ul>
+  *         </div>
+  *       </div><span class="ay-form__msg"></span>
+  *     </div>
+  *     <div class="ay-form__col ay-form__col_end">
+  *       <button class="ay-btn-ico ay-btn_primary i-plus" type="button">AÑADIR</button>
+  *     </div>
+  *   </div>
+  * </fieldset>
+  */
+  .ay-c-form-add {
+    .ay-form__col {
+      &.ay-form__col_end {
+        @include flexbox;
+        @include align-items(flex-start);
+        margin-top: 42px;
+        .ay-btn,
+        .ay-btn-ico {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .ay-btn-ico {
+      padding: 7px 14px;
+    }
+  }
+
+
+// .ay-c-form-add {
+//   .ay-btn,
+//   .ay-btn-ico {
+//     min-width: initial;
+//     width: 100%;
+//   }
+// }

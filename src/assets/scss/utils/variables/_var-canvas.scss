@@ -1,0 +1,35 @@
+//*-------------------------------------------*\
+  //-Variables Canvas: inner contenedor layout
+//*-------------------------------------------*/
+
+//*-------------------------------------------*\
+  // .ay-canvas width
+//*-------------------------------------------*/
+// small          : 375px
+$canvas-small-w   : 92%;
+// medium         : 768px
+$canvas-medium-w  : 96%;
+// wide           : 1024px
+$canvas-wide-w    : 88%;
+// large          : 1180px;
+// $canvas-large-w: 1180px;
+// big            : 1280px;
+// $canvas-big-w  : 1280px;
+// huge           : 1440px;
+$canvas-huge-w    : 84%;
+
+//*-------------------------------------------*\
+  // .ay-canvas max-width
+//*-------------------------------------------*/
+//  small           : 375px
+//- $canvas-small-mw: 375px;
+//  medium          : 768px
+$canvas-medium-mw   : 700px;
+//  wide            : 1024px
+$canvas-wide-mw     : 980px;
+// large            : 1180px;
+// $canvas-large-mw : 1180px;
+// big              : 1280px;
+// $canvas-big-mw   : 1280px;
+// huge             : 1440px;
+$canvas-huge-mw     : 1280px;

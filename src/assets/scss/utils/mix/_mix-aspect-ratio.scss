@@ -1,0 +1,47 @@
+//*----------------------------------------------------*\
+//  Aspect Ratio Mixin
+//*----------------------------------------------------*/
+// use: 
+// .foo {
+//    @include aspect-ratio(16, 9);
+// }
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  overflow: hidden;
+  &:before {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+}
+
+// Elementos dentro de aspect ratio
+// .ratio {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   min-width: 100%;
+//   height: 100%;
+// }
+
+// .ratio__img {
+//   position: relative;
+//   left: 50%;
+//   display: block;
+//   height: 100%;
+//   transform: translateX(-50%);
+// }
+
+
+// use: Para cambiar en los breakpoint el aspect radio
+//    .foo {
+//      @include aspect-ratio-mq(16, 9);
+//    }
+@mixin aspect-ratio-mq($width, $height) {
+  &:before {
+    padding-top: ($height / $width) * 100%;
+  }
+}

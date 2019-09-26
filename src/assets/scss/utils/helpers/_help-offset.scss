@@ -1,0 +1,25 @@
+//*-----------------------------------------------------------*\
+    //Offset: compensa el ancho de su contenedor para ir al 100%
+//*-----------------------------------------------------------*/
+
+// Desc: compensa el ancho del canvas en %:
+// * Resta al 100% el ancho del canvas,
+// * el padding se puede ajustar a la necesidad del diseño
+// Dependencias: variables:  var-canvas
+// Use: .foo {@include h-offset-full('$canvas-small-w', 4%);}
+// Dev: Andrea Acosta B.
+
+@function offMargin($canvasWidth) {
+    $offmargin: ($canvasWidth - 100) / 2;
+    @return #{$offmargin};
+}
+
+@mixin h-offset-full($canvasWidth, $elementPadding : null) {
+    margin-left: offMargin($canvasWidth);
+    margin-right: offMargin($canvasWidth);
+    padding-left: $elementPadding;
+    padding-right: $elementPadding;
+}
+
+
+

@@ -1,0 +1,114 @@
+/*------------------------------------*\
+  C18 - QuickResult
+  Description: Muestra automáticamente los
+  cálculos que se vayan realizando según la
+  información que el usuario vaya ingresando
+  en los campos exclusivamente durante la
+  generación del contrato, Wireframe No. 3.4
+  (Información del contrato con Pick Up).
+  Path: /components/QuickResult.vue
+\*------------------------------------*/
+
+.ay-c-quick-result {
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: $c-bg-light;
+}
+
+.ay-c-quick-result__head {
+  padding: 4px 0;
+  text-align: center;
+  background-color: $c-bg-mild;
+}
+
+.ay-c-quick-result__title {
+  font-family: $f-bold;
+  @include font-rem(14px);
+}
+
+.ay-c-quick-result__grid {
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(space-between);
+  padding: 10px;
+  width: 100%;
+}
+
+.ay-c-quick-result__list {
+  @include flex(1);
+  text-align: center;
+}
+
+.ay-c-quick-result__term {
+  font-family: $f-bold;
+}
+
+//- Notificación con Pickup
+.ay-c-quick-result__notify {
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(center);
+  padding: 14px;
+  text-align: center;
+  background-color: $c-bg-mild;
+  &:before {
+    display: block;
+    @include font-rem(17px);
+    margin-right: 12px;
+  }
+  &.ay-c-quick-result__notify_warning {
+    &:before {
+      color: $c-error;
+    }
+  }
+  &.ay-c-quick-result__notify_success {
+    &:before {
+      color: $c-success;
+    }
+  }
+}
+.ay-c-quick-result__notify-txt {
+  @include font-rem(16px);
+}
+.ay-c-quick-result__notify-txt_bold {
+  font-family: $f-bold;
+}
+
+.ay-c-quick-result__txt_warning {
+  color: $c-error;
+}
+
+.ay-c-quick-result__txt_success {
+  color: $c-success;
+}
+
+// Simbolo de suma he igual
+.ay-c-quick-result__symbol {
+  position: relative;
+  &:before {
+    content: attr(data-symbol);
+    display: block;
+    position: absolute;
+    bottom: 2px;
+    left: -10px;
+    line-height: 20px;
+    @include font-rem(40px);
+    font-family: $f-semibold;
+  }
+}
+
+@include media-query(medium-max) {
+  .ay-c-quick-result__grid {
+    @include flex-direction(column);
+  }
+  .ay-c-quick-result__symbol {
+    padding-top: 30px;
+    &:before {
+      bottom: initial;
+      top: 0;
+      left: initial;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

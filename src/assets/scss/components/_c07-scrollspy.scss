@@ -1,0 +1,60 @@
+/*------------------------------------*\
+  C07-Scrollspy
+  Una barra de navegación que permite 
+  realizar saltos entre secciones de una 
+  misma página, a la vez que informa al 
+  usuario de la sección de la página en 
+  la que se encuentra.
+  Type: Navigation
+  Path: /components/Scrollspy.vue
+\*------------------------------------*/
+
+/**
+  * Class: .ay-c-scrollspy
+  * @molecule Block: Scrollspy
+  * @section C07 Scrollspy
+  * @markup
+  *  <nav class="ay-c-scrollspy">
+  *    <ul class="ay-c-scrollspy__list">
+  *      <li class="ay-c-scrollspy__item"><a class="ay-c-scrollspy__link" href="#one" title="title">One</a></li>
+  *      <li class="ay-c-scrollspy__item ay-c-scrollspy__item_active"><a class="ay-c-scrollspy__link" href="#two" title="title">Two</a></li>
+  *      <li class="ay-c-scrollspy__item"><a class="ay-c-scrollspy__link" href="#three" title="title">Three</a></li>
+  *      <li class="ay-c-scrollspy__item"><a class="ay-c-scrollspy__link" href="#four" title="title">Four</a></li>
+  *    </ul>
+  *  </nav>
+  * @script
+  *  nav.ay-c-scrollspy
+  *    ul.ay-c-scrollspy__list
+  *      li.ay-c-scrollspy__item(
+  *        :class="{ 'ay-c-scrollspy__item_active' : item.id === $route.hash.split('#')[1] }"
+  *        v-for="item in items")
+  *        a.ay-c-scrollspy__link(:href="'#' + item.id", title="title") {{ item.title }}
+  *    */
+
+.ay-c-scrollspy {
+  position: sticky;
+  top: 0;
+  margin-top: 20px;
+}
+
+.ay-c-scrollspy__list {
+  list-style: none;
+}
+
+.ay-c-scrollspy__item {
+  margin-bottom: 8px;
+  &.ay-c-scrollspy__item_active {
+    background-color: $c-primary;
+    .ay-c-scrollspy__link {
+      color: $c-neutro;
+    }
+  }
+}
+
+.ay-c-scrollspy__link {
+  display: block;
+  padding: 6px 14px;
+  font-family: $f-bold;
+  @include font-rem(14px);
+  color: $c-on;
+}

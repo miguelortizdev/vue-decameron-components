@@ -1,0 +1,135 @@
+//*------------------------------------------------------*\
+  // MediaQueries first mobile with defined breakpoints
+//*------------------------------------------------------*/
+
+// @requires variables $breakpoint (se definen en var-breakpoint.scss)
+
+// Use: @include media-query(wide) {PROPERTIES...}
+  // @param $media-query:
+      //  small     : $bp-small  : 375px
+      //  small-m   : $bp-small-m: 480px
+      //  medium    : $bp-medium : 768px
+      //  medium-max: 0 - 767px
+      //  wide      : $bp-wide   : 1024px
+      //  wide-max  : 0 - 1023px
+      //  large     : $bp-large  : 1180px;
+      //  large-max : 0 - 1179px;
+      //  big       : $bp-big    : 1280px;
+      //  huge      : $bp-huge   : 1440px;
+
+
+@mixin media-query($media-query) {
+  @if $media-query == small {
+    @media only screen and (min-width: $bp-small) {
+      @content;
+    }
+  }
+  @if $media-query == small-m {
+    @media only screen and (min-width: $bp-small-m) {
+      @content;
+    }
+  }
+  @if $media-query==medium {
+    @media only screen and (min-width: $bp-medium) {
+      @content;
+    }
+  }
+   //max 767
+  @if $media-query == medium-max {
+    @media only screen and (max-width: $bp-medium - 1) {
+      @content;
+    }
+  }
+
+  @if $media-query == wide {
+    @media only screen and (min-width: $bp-wide) {
+      @content;
+    }
+  }
+  //max 1023
+  @if $media-query == wide-max {
+    @media only screen and (max-width: $bp-wide - 1) {
+      @content;
+    }
+  }
+
+  @if $media-query == large {
+    @media only screen and (min-width: $bp-large) {
+      @content;
+    }
+  }
+  @if $media-query == large-max {
+    @media only screen and (max-width: $bp-large - 1) {
+      @content;
+    }
+  }
+   @if $media-query==big {
+     @media only screen and (min-width: $bp-big) {
+       @content;
+     }
+   }
+
+  @if $media-query == huge {
+    @media only screen and (min-width: $bp-huge) {
+      @content;
+    }
+  }
+
+}
+
+// Just some helpers...
+  //use: .foo{
+  //			@include  mq-wide {
+  //				PROPERTIES...
+  //			}
+  //		}
+@mixin mq-small {
+  @include media-query(small) {
+    @content
+  };
+}
+@mixin mq-small-m {
+  @include media-query(small-m) {
+    @content
+  };
+}
+@mixin mq-medium {
+  @include media-query(medium) {
+    @content
+  };
+}
+@mixin mq-medium-max {
+  @include media-query(medium-max) {
+    @content
+  };
+}
+@mixin mq-wide {
+  @include media-query(wide) {
+    @content
+  };
+}
+@mixin mq-wide-max {
+  @include media-query(wide-max) {
+    @content
+  };
+}
+@mixin mq-large {
+  @include media-query(large) {
+    @content
+  };
+}
+@mixin mq-large-max {
+  @include media-query(large-max) {
+    @content
+  };
+}
+@mixin mq-big {
+  @include media-query(big) {
+    @content
+  };
+}
+@mixin mq-huge {
+  @include media-query(huge) {
+    @content
+  };
+}

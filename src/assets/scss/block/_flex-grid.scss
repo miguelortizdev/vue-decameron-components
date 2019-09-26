@@ -1,0 +1,121 @@
+/*------------------------------------*\
+  FlexGrid
+  Type: layout
+\*------------------------------------*/
+
+.ay-flex-grid {
+  @include flexbox;
+  @include flex-wrap(wrap);
+  .ay-flex-grid {
+    @include flex(1 1 100%);
+    max-width: 100%;
+  }
+}
+
+  .ay-flex-grid__item {
+    @include flex(1 1 50%);
+    max-width: 50%;
+    padding: 0 10px;
+    margin-bottom: 10px;
+  }
+
+  .ay-flex-grid__item_center {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(center);
+  }
+  .ay-flex-grid__item-half {
+    @include flexbox;
+    @include align-items(center);
+    @include flex(1 1 50%);
+    max-width: 50%;
+  }
+  .ay-flex-grid__item-full {
+    @include flexbox;
+    @include flex(1 1 100%);
+  }
+
+.ay-flex-grid__inner {
+  margin: 0 -10px;
+}
+
+@include media-query(medium) {
+  .ay-flex-grid {
+    .ay-flex-grid {
+      @include flex(1 1 50%);
+      max-width: 50%;
+    }
+  }
+}
+
+@include media-query(wide) {
+  .ay-flex-grid {
+    .ay-flex-grid {
+      @include flex(1 1 auto);
+      max-width: initial;
+      &.ay-flex-grid__item_9 {
+        @include flex(9 3 75%);
+        max-width: 75%;
+      }
+    }
+  }
+
+  .ay-flex-grid__item {
+    @include flex(1 3 8.333%);
+  }
+  
+  .ay-flex-grid__item_2 {
+    @include flex(2 3 16.666%);
+    max-width: 16.666%;
+  }
+
+  .ay-flex-grid__item_3 {
+    @include flex(3 3 25%);
+    max-width: 25%;
+  }
+
+  .ay-flex-grid__item_4 {
+    @include flex(4 3 33.333%);
+    max-width: 33.333%;
+  }
+
+  .ay-flex-grid__item_5 {
+    @include flex(5 3 41.666%);
+    max-width: 41.666%;
+  }
+
+  .ay-flex-grid__item_6 {
+    @include flex(6 3 50%);
+    max-width: 50%;
+  }
+
+  .ay-flex-grid__item_7 {
+    @include flex(7 3 58.333%);
+    max-width: 58.333%;
+  }
+
+  .ay-flex-grid__item_8 {
+    @include flex(8 3 66.666%);
+    max-width: 66.666%;
+  }
+
+  .ay-flex-grid__item_9 {
+    @include flex(9 3 75%);
+    max-width: 75%;
+  }
+
+  .ay-flex-grid__item_10 {
+    @include flex(10 3 83.333%);
+    max-width: 83.333%;
+  }
+
+  .ay-flex-grid__item_11 {
+    @include flex(11 3 91.666%);
+    max-width: 91.666%;
+  }
+
+  .ay-flex-grid__item_12 {
+    @include flex(12 3 100%);
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,33 @@
+/*------------------------------------*\
+  C16 - Breaker
+  Description: Este call to action lleva al paso 2.
+  Consulta de los afiliados del flujo de generación
+  de contrato. Wireframe No. 3.3 (Visualización
+  información del titular y acompañante), en dónde
+  se visualiza la información que se acaba de
+  registrar a partir de la asistencia.
+  Type: Form
+  Path: /components/Breaker.vue
+\*------------------------------------*/
+
+/**
+  * Class: .ay-c-breaker
+  * @molecule Block: Breaker
+  * @section C16 Breaker
+  * @markup
+  *  <div class="ay-c-breaker">
+  *    <h3 class="ay-c-breaker__title">¿Desea generar un contrato a partir de esta asitencia?</h3><a class="ay-btn ay-btn_neutro router-link-active" href="/" title="Ir a generación de contrato">Generación de contrato</a>
+  *  </div>
+  */
+.ay-c-breaker {
+  text-align: center;
+  padding: 14px 10px 20px;
+  background-color: $c-tertiary;
+}
+
+.ay-c-breaker__title {
+  padding-bottom: 10px;
+  font-family: $f-bold;
+  @include font-rem(20px);
+  color: $c-neutro;
+}
