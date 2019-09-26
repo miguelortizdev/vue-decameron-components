@@ -27,14 +27,16 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 /**
  * Constantes para este componente
  */
-const COMPONENT_NAME = 'v-hero'
+const COMPONENT_NAME = 'v-hero';
 
 @Component({
   name: COMPONENT_NAME,
 })
 export default class HelloWorld extends Vue {
   @Prop() private title!: string;
+
   @Prop() private subtitle!: string;
+
   @Prop() private background!: string;
 }
 </script>

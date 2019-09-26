@@ -21,7 +21,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 /**
  * Constantes para este componente
  */
-const COMPONENT_NAME = 'hello-world'
+const COMPONENT_NAME = 'v-hello-world';
 
 @Component({
   name: COMPONENT_NAME,

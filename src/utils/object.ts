@@ -1,24 +1,24 @@
-import { isArray } from './array'
+import { isArray } from './array';
 
 // --- Static ---
 
-export const assign = Object.assign
-export const getOwnPropertyNames = Object.getOwnPropertyNames
-export const keys = Object.keys
-export const defineProperties = Object.defineProperties
-export const defineProperty = Object.defineProperty
-export const freeze = Object.freeze
-export const getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor
-export const getOwnPropertySymbols = Object.getOwnPropertySymbols
-export const getPrototypeOf = Object.getPrototypeOf
-export const create = Object.create
-export const isFrozen = Object.isFrozen
-export const is = Object.is
+export const { assign } = Object;
+export const { getOwnPropertyNames } = Object;
+export const { keys } = Object;
+export const { defineProperties } = Object;
+export const { defineProperty } = Object;
+export const { freeze } = Object;
+export const { getOwnPropertyDescriptor } = Object;
+export const { getOwnPropertySymbols } = Object;
+export const { getPrototypeOf } = Object;
+export const { create } = Object;
+export const { isFrozen } = Object;
+export const { is } = Object;
 
 // --- "Instance" ---
 
-export const hasOwnProperty = (obj: Object, prop: any) => Object.prototype.hasOwnProperty.call(obj, prop)
-export const toString = (obj: Object) => Object.prototype.toString.call(obj)
+export const hasOwnProperty = (obj: Object, prop: any) => Object.prototype.hasOwnProperty.call(obj, prop);
+export const toString = (obj: Object) => Object.prototype.toString.call(obj);
 
 // --- Utilities ---
 
@@ -28,21 +28,24 @@ export const toString = (obj: Object) => Object.prototype.toString.call(obj)
  * is a JSON-compliant type.
  * Note object could be a complex type like array, date, etc.
  */
-export const isObject = (obj: any) => obj !== null && typeof obj === 'object'
+export const isObject = (obj: any) => obj !== null && typeof obj === 'object';
 
 /**
  * Strict object type check. Only returns true
  * for plain JavaScript objects.
  */
-export const isPlainObject = (obj: Object) => Object.prototype.toString.call(obj) === '[object Object]'
+export const isPlainObject = (obj: Object) => Object.prototype.toString.call(obj) === '[object Object]';
 
 // @link https://gist.github.com/bisubus/2da8af7e801ffd813fab7ac221aa7afc
-export const omit = (obj: any, props: any) =>
-  keys(obj)
-    .filter(key => props.indexOf(key) === -1)
-    .reduce((result, key) => ({ ...result, [key]: obj[key] }), {})
+export const omit = (obj: any, props: any) => keys(obj)
+  .filter(key => props.indexOf(key) === -1)
+  .reduce((result, key) => ({ ...result, [key]: obj[key] }), {});
 
-export const readonlyDescriptor = () => ({ enumerable: true, configurable: false, writable: false })
+export const readonlyDescriptor = () => ({
+  enumerable: true,
+  configurable: false,
+  writable: false,
+});
 
 /**
  * Deep-freezes and object, making it immutable / read-only.
@@ -54,12 +57,12 @@ export const readonlyDescriptor = () => ({ enumerable: true, configurable: false
 export const deepFreeze = (obj: any) => {
   // Retrieve the property names defined on object/array
   // Note: `keys` will ignore properties that are keyed by a `Symbol()`
-  const props = keys(obj)
+  const props = keys(obj);
   // Iterate over each prop and recursively freeze it
-  props.forEach(prop => {
-    const value = obj[prop]
+  props.forEach((prop) => {
+    const value = obj[prop];
     // If value is a plain object or array, we deepFreeze it
-    obj[prop] = value && (isPlainObject(value) || isArray(value)) ? deepFreeze(value) : value
-  })
-  return freeze(obj)
-}
+    obj[prop] = value && (isPlainObject(value) || isArray(value)) ? deepFreeze(value) : value;
+  });
+  return freeze(obj);
+};

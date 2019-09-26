@@ -7,12 +7,12 @@
 // --- Getters ---
 
 export const getEnv = (key: any, fallback = null) => {
-  const env = typeof process !== 'undefined' && process ? process.env || {} : {}
+  const env = typeof process !== 'undefined' && process ? process.env || {} : {};
   if (!key) {
     /* istanbul ignore next */
-    return env
+    return env;
   }
-  return env[key] || fallback
-}
+  return env[key] || fallback;
+};
 
-export const getNoWarn = () => getEnv('BOOTSTRAP_VUE_NO_WARN')
+export const getNoWarn = () => getEnv('VUE_NO_WARN');
