@@ -10,10 +10,21 @@
 </template>
 
 <script lang="ts">
+/**
+ * @fileoverview  HelloWorld
+ * @version       0.1
+ * @author        Miguel Ortiz <miguel.ortiz@decameron.com>
+ */
+
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
+/**
+ * Constantes para este componente
+ */
+const COMPONENT_NAME = 'hello-world'
+
 @Component({
-  name: 'hello-world',
+  name: COMPONENT_NAME,
 })
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
