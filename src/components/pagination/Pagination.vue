@@ -76,7 +76,7 @@
  */
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
-import RenderPagination from './RenderPagination';
+// import RenderPagination from './RenderPagination';
 
 /**
  * Constantes para este componente
@@ -86,7 +86,7 @@ const COMPONENT_NAME = 'v-pagination';
 @Component({
   name: COMPONENT_NAME,
   components: {
-    'v-render-pagination': RenderPagination,
+    //  'v-render-pagination': RenderPagination,
   },
 })
 export default class Pagination extends Vue {

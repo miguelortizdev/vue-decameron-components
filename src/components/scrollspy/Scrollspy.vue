@@ -48,6 +48,7 @@
  * @author        Miguel Ortiz <miguel.ortiz@decameron.com>
  */
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import VueScrollactive from 'vue-scrollactive';
 
 /**
  * Constantes para este componente
@@ -56,6 +57,9 @@ const COMPONENT_NAME = 'v-scrollspy';
 
 @Component({
   name: COMPONENT_NAME,
+  components: {
+    scrollactive: VueScrollactive,
+  },
 })
 export default class Scrollspy extends Vue {
   @Prop({ default: () => [] }) private items!: any[];

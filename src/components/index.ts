@@ -13,7 +13,7 @@ import FormCard from '@/components/form-card/FormCard.vue';
 import Hero from '@/components/hero/Hero.vue';
 import Input from '@/components/input/Input.vue';
 import Modal from '@/components/modal/Modal.vue';
-import Pagination from '@/components/pagination/Pagination.vue';
+// import Pagination from '@/components/pagination/Pagination.vue';
 import Scrollspy from '@/components/scrollspy/Scrollspy.vue';
 
 
@@ -24,7 +24,7 @@ const VueComponents : any = {
     Vue.component(Hero.name, Hero);
     Vue.component(Input.name, Input);
     Vue.component(Modal.name, Modal);
-    Vue.component(Pagination.name, Pagination);
+    // Vue.component(Pagination.name, Pagination);
     Vue.component(Scrollspy.name, Scrollspy);
 
     // Object containing Tour objects (see Home.vue) where the tour name is used as key
@@ -45,6 +45,6 @@ export {
   Hero,
   Input,
   Modal,
-  Pagination,
+  // Pagination,
   Scrollspy,
 };
